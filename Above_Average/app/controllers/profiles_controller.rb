@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   def create
+    @profile = params[:profile]
   end
 
   def edit
