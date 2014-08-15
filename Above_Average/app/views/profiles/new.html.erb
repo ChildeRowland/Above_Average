@@ -1,2 +1,15 @@
-<h1>Profiles#new</h1>
-<p>Find me in app/views/profiles/new.html.erb</p>
+<h3>
+	Fill out some profile info
+</h3>
+
+<%= form_for([@user, @profile], method: :post) do |f| %>
+	<%= f.label :fname %>
+	<%= f.text_field :fname %>
+	<%= f.label :age %>
+	<%= f.text_field :age %>
+	<%= f.label :zip %>
+	<%= f.text_field :zip %>
+	<%= f.label :total_household_members %>
+	<%= f.text_field :total_household_members %>
+	<%= f.submit "Add Profile"
+<% end %>
