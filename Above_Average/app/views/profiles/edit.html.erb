@@ -1,2 +1,15 @@
-<h1>Profiles#edit</h1>
-<p>Find me in app/views/profiles/edit.html.erb</p>
+<h3>
+	Update your Profile:
+</h3>
+
+<%= form_for([@user, @profile], method: :patch) do |f| %>
+	<%= f.label "First Name" %><br>
+	<%= f.text_field :fname %><br>
+	<%= f.label "Age" %><br>
+	<%= f.text_field :age %><br>
+	<%= f.label "Zip" %><br>
+	<%= f.text_field :zip %><br>
+	<%= f.label "Inculding yourself, how may people live on your home?" %><br>
+	<%= f.text_field :total_household_members %><br>
+	<%= f.submit "Update Profile" %>
+<% end %>

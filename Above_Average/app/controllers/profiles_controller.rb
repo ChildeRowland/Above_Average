@@ -1,38 +1,46 @@
 class ProfilesController < ApplicationController
-  
-
-  def edit
-  end
 
   def new
     @user = current_user
-    @profile = @user.profile.build(params_profile)
+    @profile = @user.profiles.build(params[:profile])
   end
 
   def create
     @user = current_user
-    @profile = @user.profile.build(params_profile)
+    @profile = @user.profiles.build(profile_params)
       if @profile.save
-        redirect_to user_path
+        redirect_to user_path @current_user
       else
         redirect_to :back
       end
   end
 
-  def show
-  end
-
-  def index
+  def edit
+    @user = current_user
+    @profile = @user.profiles.last
   end
 
   def update
+    @user = current_user
+    @profile = @user.profiles.last
+    if @profile.update_attributes(profile_params)
+      redirect_to user_path @current_user
+    else
+      redirect_to :back
+    end
   end
 
-  def destroy
-  end
+  # def show
+  # end
+
+  # def index
+  # end
+
+  # def destroy
+  # end
 
   private
-  def params_profile
+  def profile_params
     params.require(:profile).permit(:age, :zip, :total_household_members, :fname)
   end
 

@@ -3,13 +3,13 @@
 </h3>
 
 <%= form_for([@user, @profile], method: :post) do |f| %>
-	<%= f.label :fname %>
-	<%= f.text_field :fname %>
-	<%= f.label :age %>
-	<%= f.text_field :age %>
-	<%= f.label :zip %>
-	<%= f.text_field :zip %>
-	<%= f.label :total_household_members %>
-	<%= f.text_field :total_household_members %>
-	<%= f.submit "Add Profile"
+	<%= f.label "First Name" %><br>
+	<%= f.text_field :fname %><br>
+	<%= f.label "Age" %><br>
+	<%= f.text_field :age %><br>
+	<%= f.label "Zip" %><br>
+	<%= f.text_field :zip %><br>
+	<%= f.label "Inculding yourself, how may people live on your home?" %><br>
+	<%= f.text_field :total_household_members %><br>
+	<%= f.submit "Add Profile" %>
 <% end %>
