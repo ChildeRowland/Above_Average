@@ -8,6 +8,14 @@
 </head>
 <body>
 
+	<%= link_to_if current_user.nil?, 'Sign-in', new_user_session_path, method: :get do
+	link_to 'Sign-out', destroy_user_session_path, method: :delete
+	end %> 
+
+	<% if !session[:user_id].nil? %>
+	<%= link_to 'Log out', log_out_path, method: :get %>
+	<% end %>
+
 	<p class="notice"><%= notice %></p>
    	<p class="alert"><%= alert %></p>
 
@@ -19,10 +27,15 @@
 				<%= link_to "Home", root_path %>
 			</li>
 			<li>
+				<%= link_to "New User", new_user_registration_path %>
+			</li>
+			<li>
 				<%= link_to "Punch", punch_path %>
 			</li>
 		</ul>
 	</div>
+
+<%= link_to "Register", new_user_registration_path, method: :get %>
 
 </body>
 </html>
