@@ -1,2 +1,9 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<!-- <h1>Profiles#show</h1>
+<p>Find me in app/views/profiles/show.html.erb</p> -->
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<h1>Results by...</h1>
+
+<%= pie_chart({"Age" => 25, "Household Members" => 4}) %>
+<%= geo_chart Profile.group(:zip).count %>
+<%= bar_chart Profile.group(:age) %>
+
