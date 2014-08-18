@@ -1,0 +1,12 @@
+<h3>
+	User's Page
+</h3>
+
+<p>
+	<%= "Welomce back #{@user.profiles.last.fname}" %>
+</p>
+
+How often do you stop bank robbers?
+<%= @user.test_forms.last.stop_bank_robbers %><br>
+
+stop_bank_robbers, :love_litter, :inverse_statement

@@ -1,0 +1,13 @@
+<h3>
+	Test Forms
+</h3>
+
+<%= form_for([@user, @test_form], method: :post) do |f| %>
+	<%= f.label "How often do you stop bank robbers?" %><br>
+	<%= f.select(:stop_bank_robbers, options_for_select([['Does not apply', 1 ], ['Never', 2], ['Sometimes', 3], ['Always', 4]])) %><br>
+	<%= f.label "On a scale from 1 to 10, how much do you love to litter?" %><br>
+	<%= f.select(:love_litter, options_for_select((1..10).step(1))) %><br>
+	<%= f.label "Do you do the inverse of this statement?" %><br>
+	<%= f.select(:inverse_statement, options_for_select([true, false]))%><br>
+	<%= f.submit "Boom" %>
+<% end %>
