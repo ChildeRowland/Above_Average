@@ -1,3 +1,13 @@
 <p>
 	New Utility Form
 </p>
+
+<%= form_for([@user, @utility], method: :post) do |f| %>
+	<%= f.label "Enter the kWh of electricity used:" %><br>
+	<%= f.text_field :kwh %><br>
+	<%= f.label "Enter the therms of gas used:" %><br>
+	<%= f.text_field :therms %><br>
+	<%= f.label "Enter the gallons of water used:" %><br>
+	<%= f.text_field :gallons %><br>
+	<%= f.submit "Submit" %>
+<% end %>

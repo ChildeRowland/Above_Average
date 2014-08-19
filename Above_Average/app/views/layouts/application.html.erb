@@ -11,7 +11,7 @@
 
 			<ul class="navbar-inverse">
 				<li>
-					<%= link_to "Home", root_path %>
+					<%= link_to "About", root_path %>
 				</li>
 				<li>
 					<%= link_to "Sign Up", new_user_registration_path %>
@@ -22,6 +22,11 @@
 				<li>
 					<%= link_to_if current_user.nil?, 'Sign-in', new_user_session_path, method: :get do link_to 'Sign-out', destroy_user_session_path, method: :delete end %> 
 				</li>
+					<% if !current_user.nil? %>
+				<li>
+						<%= link_to "User Home", user_path(:id => session.id), method: :get %>
+				</li>
+					<% end %>
 			</ul>
 
 		<p class="notice"><%= notice %></p>

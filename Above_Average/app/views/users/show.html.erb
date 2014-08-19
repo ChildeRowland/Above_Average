@@ -3,5 +3,18 @@
 </h3>
 
 <p>
-	<%= "Welomce back #{@user.profiles.last.fname}" %>
+	Give some info:
 </p>
+
+<div>
+	<% if @user.profiles.last.nil? %>
+		<%= link_to 'Create a Profile', new_user_profile_path(:user_id => @user.id), method: :get %>
+	<% end %>
+</div>
+
+<div>
+	<% if @user.utilities.last.nil? || @user.utilities.last.created_at < 30.day.ago %>
+		<%= link_to 'Tell us about your Utility bill', new_user_utility_path(:user_id => @user.id), method: :get %>
+	<% end %>
+</div>
+					
