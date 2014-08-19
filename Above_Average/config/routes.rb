@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :profiles
     resources :utilities
+    resources :recyclings
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

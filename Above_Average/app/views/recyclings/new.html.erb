@@ -1,0 +1,22 @@
+<h3>
+	Form for Recycling habits
+</h3>
+
+<%= form_for([@user, @recycling], method: :post) do |f| %>
+
+	<%= f.label "Local recycling, generally required" %><br>
+	<%= f.select(:local, options_for_select([['Always', 100], ['Most of the time', 75], ['Sometimes', 50], ['Occationally', 25], ['Rarely or Never', 1], ['Does Not Apply']]))%><br>
+
+	<%= f.label "Compost and Food Waste" %><br>
+	<%= f.select(:compost, options_for_select([['Always', 100], ['Most of the time', 75], ['Sometimes', 50], ['Occationally', 25], ['Rarely or Never', 1], ['Does Not Apply']]))%><br>
+
+	<%= f.label "Clothes and Fabric" %><br>
+	<%= f.select(:fabric, options_for_select([['Always', 100], ['Most of the time', 75], ['Sometimes', 50], ['Occationally', 25], ['Rarely or Never', 1], ['Does Not Apply']]))%><br>
+
+	<%= f.label "e-waste" %><br>
+	<%= f.select(:ewaste, options_for_select([['Always', 100], ['Most of the time', 75], ['Sometimes', 50], ['Occationally', 25], ['Rarely or Never', 1], ['Does Not Apply']]))%><br>
+
+	<%= f.submit "Boom" %>
+
+<% end %>
+

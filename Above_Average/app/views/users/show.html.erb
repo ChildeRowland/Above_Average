@@ -17,4 +17,9 @@
 		<%= link_to 'Tell us about your Utility bill', new_user_utility_path(:user_id => @user.id), method: :get %>
 	<% end %>
 </div>
+<div>
+	<% if @user.recyclings.last.nil? || @user.recyclings.last.created_at < 45.day.ago %>
+		<%= link_to "Let's talk about your recycling habits", new_user_recycling_path(:user_id => @user.id), method: :get %>
+	<% end %>
+</div>
 					

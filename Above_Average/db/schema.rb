@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818210853) do
+ActiveRecord::Schema.define(version: 20140819174216) do
 
   create_table "profiles", force: true do |t|
     t.integer  "age"
     t.integer  "zip"
     t.integer  "total_household_members"
     t.string   "fname"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recyclings", force: true do |t|
+    t.integer  "local"
+    t.integer  "compost"
+    t.integer  "fabric"
+    t.integer  "ewaste"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
