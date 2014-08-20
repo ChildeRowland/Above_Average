@@ -1,0 +1,38 @@
+<html>
+  
+  <head>
+  
+  </head>
+    
+    <h3>
+
+	   Test out graphs, charts, and data
+
+    </h3>
+
+    <%= @user.email %>
+
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+   
+    <h4>Results by:</h4>
+
+    <h5>Comparing Current and Average User</h5>
+
+        <%= bar_chart [
+          {name: "Current User", data:[
+            ["age", @user.profiles.last.age],
+            ["total household members", @user.profiles.last.total_household_members],
+            
+          ]
+          },
+
+          {name: "Average User", data:[
+            ["age", @average_age],
+            ["total household members", @average_total_household_members],
+            
+          ]
+          }
+          ]
+          %>
+            
+</html>
