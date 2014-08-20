@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(version: 20140819174216) do
     t.datetime "updated_at"
   end
 
-  create_table "test_forms", force: true do |t|
-    t.integer  "stop_bank_robbers"
-    t.integer  "love_litter"
-    t.boolean  "inverse_statement"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
