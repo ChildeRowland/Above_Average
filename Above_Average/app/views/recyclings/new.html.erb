@@ -15,8 +15,30 @@
 
 	<%= f.label "e-waste" %><br>
 	<%= f.select(:ewaste, options_for_select([['Always', 100], ['Most of the time', 75], ['Sometimes', 50], ['Occationally', 25], ['Rarely or Never', 1], ['Does Not Apply']]))%><br>
+	<%= f.range_field :ewaste, :min=>0, :max=>100, :step =>5, :value=>0, :class=>"slide" %>
+
+		<p id="slider-value"></p>
+
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$('.slide').on('change', function(s) {
+				var val = $(this).val();
+				var msg = "";
+				if (val == 0) {
+					msg = "Does not Apply"
+				} else if (val <= 25) {
+					msg = "Occationally";
+				} else if (val <= 50) {
+					msg = 'Sometimes';
+				} else if (val <= 75 ) {
+					msg = "Most of the Time";
+				} else
+					msg = "Always";
+				$('#slider-value').html(msg);
+			});
+		});
+		</script>
 
 	<%= f.submit "Boom" %>
 
 <% end %>
-
