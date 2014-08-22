@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819174216) do
+ActiveRecord::Schema.define(version: 20140822003327) do
 
   create_table "profiles", force: true do |t|
     t.integer  "age"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20140819174216) do
     t.integer  "compost"
     t.integer  "fabric"
     t.integer  "ewaste"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "test_forms", force: true do |t|
+    t.integer  "stop_bank_robbers"
+    t.integer  "love_litter"
+    t.boolean  "inverse_statement"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -58,6 +67,10 @@ ActiveRecord::Schema.define(version: 20140819174216) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "normalized_kwh"
+    t.float    "normalized_therms"
+    t.float    "normalized_gallons"
+    t.float    "total"
   end
 
 end
