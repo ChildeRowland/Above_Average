@@ -1,0 +1,123 @@
+<html>
+  
+  <head>
+  
+  </head>
+    
+    <h3>
+
+     Test out graphs, charts, and data
+
+    </h3>
+
+    <%= @user.email %>
+
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+   
+    <h4>Results by:</h4>
+
+    <!-- I think we need to get the group_by method to work and possibly add a datetime to users.rb or profiles.rb, utlities.rb, recycling.rb that shows when they were all originally completed. If possible, it might be better to wrap each question model into one?  -->
+     <h5>Comparing User Progress</h5>
+          <%= bar_chart [
+            # {name: "Current User Then", data:[
+            # ["age", @user.profiles.last.age],
+            # ["total household members", @user.profiles.last.total_household_members],
+            # ["kwh", @user.utilities.last.kwh],
+            # ["therms", @user.utilities.last.therms],
+            # ["gallons", @user.utilities.last.gallons],
+            # ["local", @user.recyclings.last.local],
+            # ["compost", @user.recyclings.last.compost],
+            # ["fabric", @user.recyclings.last.fabric],
+            # ["ewaste", @user.recyclings.last.ewaste]
+            # ]
+            # },
+            {name: "Current User Now: Profile", data:[
+            ["age", @user.profiles.last.age],
+            ["total household members", @user.profiles.last.total_household_members]
+          
+            ]
+            }
+            ]
+            %>
+          <%= bar_chart [
+            {name: "Current User Now: Utilities", data:[
+            ["kwh", @user.utilities.last.kwh],
+            ["therms", @user.utilities.last.therms],
+            ["gallons", @user.utilities.last.gallons]
+            ]
+            }
+            ]
+            %>
+
+          <%= bar_chart [
+            {name: "Current User Now: Recycling", data:[
+            ["local", @user.recyclings.last.local],
+            ["compost", @user.recyclings.last.compost],
+            ["fabric", @user.recyclings.last.fabric],
+            ["ewaste", @user.recyclings.last.ewaste]
+            ]
+            }
+            ]
+            %>
+
+    <h5>Comparing Current and Average User</h5>
+<!-- Do we need to have integer values for answers to recycling? -->
+        <%= bar_chart [
+          {name: "Current User", data:[
+            ["age", @user.profiles.last.age],
+            ["total household members", @user.profiles.last.total_household_members],
+            ["kwh", @user.utilities.last.kwh],
+            ["therms", @user.utilities.last.therms],
+            ["gallons", @user.utilities.last.gallons],
+            ["local", @user.recyclings.last.local],
+            ["compost", @user.recyclings.last.compost],
+            ["fabric", @user.recyclings.last.fabric],
+            ["ewaste", @user.recyclings.last.ewaste],
+            
+          ]
+          },
+
+          {name: "Average User", data:[
+            ["age", @average_age],
+            ["total household members", @average_total_household_members],
+            ["kwh", @average_kwh],
+            ["therms", @average_therms],
+            ["gallons", @average_gallons],
+            ["local", @average_local],
+            ["compost", @average_compost],
+            ["fabric", @average_fabric],
+            ["ewaste", @average_ewaste],
+            
+          ]
+          }
+          ]
+          %>
+
+          <h5>All Users</h5>
+
+          <h6>User sign in</h6>
+<!-- Is there an adapter that solves this error? "Connection adapter not supported: SQLite" Happens when I try to use method group_by_time -->
+          <%= line_chart User.group(:last_sign_in_at).count%>
+
+          <h6>Household members by Age</h6>
+
+          <%= bar_chart Profile.group(:total_household_members).sum(:age) %>
+        
+       <!--  <%= line_chart [
+          {name: "All Users", data:[
+            ["age", Profile.group(:age)],
+            ["total household members", Profile.group(:total_household_members)],
+            ["kwh", Utility.group(:kwh)],
+            ["therms", Utility.group(:therms)],
+            ["gallons", Utility.group(:gallons)],
+            ["local", Recycling.group(:local)],
+            ["compost", Recycling.group(:compost)],
+            ["fabric", Recycling.group(:fabric)],
+            ["ewaste", Recycling.group(:ewaste)],
+            
+          ]
+          }
+          ]
+          %> -->
+            
+</html>

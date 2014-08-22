@@ -16,12 +16,51 @@
    
     <h4>Results by:</h4>
 
+    <h5>Comparing User Progress</h5>
+          <%= bar_chart [
+          {name: "Current User Then", data:[
+            ["age", @user.profiles.last.age],
+            ["total household members", @user.profiles.last.total_household_members],
+            ["kwh", @user.utilities.last.kwh],
+            ["therms", @user.utilities.last.therms],
+            ["gallons", @user.utilities.last.gallons],
+            ["local", @user.recyclings.last.local],
+            ["compost", @user.recyclings.last.compost],
+            ["fabric", @user.recyclings.last.fabric],
+            ["ewaste", @user.recyclings.last.ewaste],
+            
+          ]
+          },
+
+          <%= bar_chart [
+          {name: "Current User Now", data:[
+            ["age", @user.profiles.last.age],
+            ["total household members", @user.profiles.last.total_household_members],
+            ["kwh", @user.utilities.last.kwh],
+            ["therms", @user.utilities.last.therms],
+            ["gallons", @user.utilities.last.gallons],
+            ["local", @user.recyclings.last.local],
+            ["compost", @user.recyclings.last.compost],
+            ["fabric", @user.recyclings.last.fabric],
+            ["ewaste", @user.recyclings.last.ewaste],
+            
+          ]
+          }
+
+
     <h5>Comparing Current and Average User</h5>
 
         <%= bar_chart [
           {name: "Current User", data:[
             ["age", @user.profiles.last.age],
             ["total household members", @user.profiles.last.total_household_members],
+            ["kwh", @user.utilities.last.kwh],
+            ["therms", @user.utilities.last.therms],
+            ["gallons", @user.utilities.last.gallons],
+            ["local", @user.recyclings.last.local],
+            ["compost", @user.recyclings.last.compost],
+            ["fabric", @user.recyclings.last.fabric],
+            ["ewaste", @user.recyclings.last.ewaste],
             
           ]
           },
@@ -29,6 +68,13 @@
           {name: "Average User", data:[
             ["age", @average_age],
             ["total household members", @average_total_household_members],
+            ["kwh", @average_kwh],
+            ["therms", @average_therms],
+            ["gallons", @average_gallons],
+            ["local", @average_local],
+            ["compost", @average_compost],
+            ["fabric", @average_fabric],
+            ["ewaste", @average_ewaste],
             
           ]
           }

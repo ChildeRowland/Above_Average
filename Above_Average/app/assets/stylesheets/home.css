@@ -9,3 +9,7 @@
 /*.nav ul li {
 	list-style: none;
 }*/
+
+body {
+    background-image: url('/images/NYC.jpeg');
+}
