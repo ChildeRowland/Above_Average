@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819174216) do
+ActiveRecord::Schema.define(version: 20140822003327) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +64,10 @@ ActiveRecord::Schema.define(version: 20140819174216) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "normalized_kwh"
+    t.float    "normalized_therms"
+    t.float    "normalized_gallons"
+    t.float    "total"
   end
 
 end
