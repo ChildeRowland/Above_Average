@@ -32,6 +32,9 @@ gem 'spring',        group: :development
 gem 'chartkick'
 # Use unicorn as the app server
 # gem 'unicorn'
+# group_by_date options with gem 'chartkick'
+gem 'groupdate'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
