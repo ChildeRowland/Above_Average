@@ -1,5 +1,7 @@
 class Utility < ActiveRecord::Base
 
+	validates_numericality :kwh, :therms, :gallons
+
 	before_save :normalize, :aggregate
 
 	belongs_to :user
