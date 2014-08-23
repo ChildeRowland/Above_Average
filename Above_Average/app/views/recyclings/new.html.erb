@@ -6,8 +6,8 @@
 
 	<%= f.label "Local recycling, generally required" %><br>
 	<%= f.select(:local, options_for_select([['Always', 100], ['Most of the time', 75], ['Sometimes', 50], ['Occationally', 25], ['Rarely or Never', 1], ['Does Not Apply']]))%><br>
-	<div style="width: 65%; height: 50px; background-color: lightpink">
-	<%= f.range_field :ewaste, :min=>0, :max=>100, :step =>5, :value=>0, :class=>"local-slide" %>
+	<div style="width: 65%; height: 50px; background-color: rgba(155,25,0,0.6);">
+	<%= f.range_field :local, :min=>0, :max=>100, :step =>20, :value=>0, :class=>"local-slide" %>
 
 		<p id="local-slider-value"></p>
 	</div>
@@ -18,11 +18,13 @@
 				var msg = "";
 				if (val == 0) {
 					msg = "Does not Apply"
-				} else if (val <= 25) {
+				} else if (val <= 20) {
 					msg = "Occationally";
-				} else if (val <= 50) {
+				} else if (val <= 40) {
 					msg = 'Sometimes';
-				} else if (val <= 75 ) {
+				} else if (val <= 60 ) {
+					msg = "Most of the Time";
+				} else if (val <= 80 ) {
 					msg = "Most of the Time";
 				} else
 					msg = "Always";
@@ -32,7 +34,7 @@
 		</script>
 
 	<%= f.label "Compost and Food Waste" %><br>
-	<%= f.range_field :compost, :min=>0, :max=>100, :step =>5, :value=>0, :class=>"compost-slide" %>
+	<%= f.range_field :compost, :min=>0, :max=>100, :step =>20, :value=>0, :class=>"compost-slide" %>
 
 		<p id="compost-slider-value"></p>
 
@@ -43,11 +45,13 @@
 				var msg = "";
 				if (val == 0) {
 					msg = "Does not Apply"
-				} else if (val <= 25) {
+				} else if (val <= 20) {
 					msg = "Occationally";
-				} else if (val <= 50) {
+				} else if (val <= 40) {
 					msg = 'Sometimes';
-				} else if (val <= 75 ) {
+				} else if (val <= 60 ) {
+					msg = "Most of the Time";
+				} else if (val <= 80 ) {
 					msg = "Most of the Time";
 				} else
 					msg = "Always";
@@ -57,7 +61,7 @@
 		</script>
 
 	<%= f.label "Clothes and Fabric" %><br>
-	<%= f.range_field :fabric, :min=>0, :max=>100, :step =>5, :value=>0, :class=>"fabric-slide" %>
+	<%= f.range_field :fabric, :min=>0, :max=>100, :step =>20, :value=>0, :class=>"fabric-slide" %>
 
 		<p id="fabric-slider-value"></p>
 
@@ -68,11 +72,13 @@
 				var msg = "";
 				if (val == 0) {
 					msg = "Does not Apply"
-				} else if (val <= 25) {
+				} else if (val <= 20) {
 					msg = "Occationally";
-				} else if (val <= 50) {
+				} else if (val <= 40) {
 					msg = 'Sometimes';
-				} else if (val <= 75 ) {
+				} else if (val <= 60 ) {
+					msg = "Most of the Time";
+				} else if (val <= 80 ) {
 					msg = "Most of the Time";
 				} else
 					msg = "Always";
@@ -82,7 +88,7 @@
 		</script>
 
 	<%= f.label "e-waste" %><br>
-	<%= f.range_field :ewaste, :min=>0, :max=>100, :step =>5, :value=>0, :class=>"ewaste-slide" %>
+	<%= f.range_field :ewaste, :min=>0, :max=>100, :step =>20, :value=>0, :class=>"ewaste-slide" %>
 
 		<p id="ewaste-slider-value"></p>
 
@@ -93,11 +99,13 @@
 				var msg = "";
 				if (val == 0) {
 					msg = "Does not Apply"
-				} else if (val <= 25) {
+				} else if (val <= 20) {
 					msg = "Occationally";
-				} else if (val <= 50) {
+				} else if (val <= 40) {
 					msg = 'Sometimes';
-				} else if (val <= 75 ) {
+				} else if (val <= 60 ) {
+					msg = "Most of the Time";
+				} else if (val <= 80 ) {
 					msg = "Most of the Time";
 				} else
 					msg = "Always";
