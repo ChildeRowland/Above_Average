@@ -1,6 +1,6 @@
 class Utility < ActiveRecord::Base
 
-	validates :kwh, :therms, :gallons, numericality: true#, message: "Numbers only please, no decimals."
+	validates :kwh, :therms, :gallons, numericality: true#, :message => "Numbers only please, no decimals."
 
 	before_save :normalize, :aggregate
 
@@ -11,6 +11,7 @@ class Utility < ActiveRecord::Base
 	GALLONS_TONS_CO2 = 0.005
 
 	private
+
 	def normalize
 		self.normalized_kwh = self.kwh * KWH_TONS_CO2
 		self.normalized_therms = self.therms * THERMS_TONS_CO2
@@ -22,3 +23,5 @@ class Utility < ActiveRecord::Base
  	end
 
 end
+
+# / User.find(params[:user_id]).profiles.last.total_household_members
