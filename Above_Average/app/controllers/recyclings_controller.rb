@@ -10,6 +10,8 @@ class RecyclingsController < ApplicationController
 		@recycling = @user.recyclings.build(recycling_params)
 		if @recycling.save
 			redirect_to user_path @current_user
+		else
+			redirect_to :back
 		end
 	end
 
