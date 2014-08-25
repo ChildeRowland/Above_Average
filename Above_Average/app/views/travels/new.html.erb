@@ -1,20 +1,25 @@
 
+
+
 <div style="background-color: rgba(250,250,250,0.6)">
 	<p>
 		Tell us how you travelled yesterday:
 	</p>
 
+	<%= link_to 'google maps', "https://www.google.com/maps/preview", target: "_blank" %>
+
 	<%= form_for([@user, @travel], method: :post) do |f| %>
 		<%= f.label "How much did you walk?" %><br>
-		<%= f.text_field :walk %><br>
+		<%= f.text_field :walk, name: "walking_distance_comma_separated", placeholder: "in feet" %><br>
 		<%= f.label "What distance did you train?" %><br>
-		<%= f.text_field :train %><br>
+		<%= f.text_field :train, placeholder: "in miles" %><br>
 		<%= f.label "What distance did you ride the bus?" %><br>
-		<%= f.text_field :bus %><br>
+		<%= f.text_field :bus, placeholder: "in miles" %><br>
 		<%= f.label "What distance did you travel by car or taxi?" %><br>
-		<%= f.text_field :car %><br>
+		<%= f.text_field :car, placeholder: "in miles" %><br>
 		<%= f.label "Did you fly?" %><br>
-		<%= f.text_field :plane %><br>
+		<%= f.text_field :plane, placeholder: "in miles" %><br>
 		<%= f.submit "Boom" %>
 	<% end %>
 </div>
+
