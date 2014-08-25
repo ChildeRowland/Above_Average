@@ -1,6 +1,6 @@
 class Recycling < ActiveRecord::Base
 
-	validates :local, :compost, :fabric, :ewaste, :numericality, true
+	validates :local, :compost, :fabric, :ewaste, numericality: true
 
 	before_save :aggregate
 
@@ -10,6 +10,8 @@ class Recycling < ActiveRecord::Base
 		self.total = self.local + self.compost + self.fabric + self.ewaste
 	end
 
+
+# Descriptions of values for the recycling form.
 	def recyclings_local_100
 		recyclings_local_100 = "I never waste anything.  When I use a plastic bottle, I’ll carry it around with me until it can be properly recycled.  I won’t use a garbage receptacles that says: ‘Contents Sorted and Recycled’ unless I research the validity of the claim first, and verify the quality of the recycling process."
 	end
