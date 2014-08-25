@@ -34,18 +34,13 @@
 					<li class="divider"><%= link_to "About", root_path %></li>
 					<li class="divider"><%= link_to "Punch", punch_path %></li>
 					<li class="divider"><%= link_to "Graphs", graphs_path %></li>
-					<li class="divider"><%= link_to "User Home", user_path(:id => session.id), method: :get %></li>
+						<% if !current_user.nil? %>
+					<li class="divider">
+							<%= link_to "User Home", user_path(:id => session.id), method: :get %>
+					</li>
+						<% end %>
 				</ul>
 			</div>
-
-		    <ul class="nav navbar-nav navbar-right">
-		    	<li><% if !current_user.nil? %>
-		    		<li class="divider"><%= link_to "User Home", user_path(:id =>session.id), method: :get %>
-		    		</li>
-		    		<% end %>
-		    	</li>
-		    </ul>
-		</div>
 	</nav>
 
 	
@@ -53,8 +48,8 @@
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 
-	<%= yield %>	
-	Lorem ipsum
+
+	<%= yield %>
 
 
 </body>
