@@ -13,9 +13,12 @@ class Utility < ActiveRecord::Base
 	private
 
 	def normalize
-		self.normalized_kwh = self.kwh * KWH_TONS_CO2
-		self.normalized_therms = self.therms * THERMS_TONS_CO2
-		self.normalized_gallons = self.gallons * GALLONS_TONS_CO2
+
+		p = user.profiles.last.total_household_members
+
+		self.normalized_kwh = self.kwh / p * KWH_TONS_CO2
+		self.normalized_therms = self.therms / p * THERMS_TONS_CO2
+		self.normalized_gallons = self.gallons / p * GALLONS_TONS_CO2
  	end
 
  	def aggregate

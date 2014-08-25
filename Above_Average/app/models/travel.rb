@@ -22,7 +22,6 @@ class Travel < ActiveRecord::Base
 		self.normalized_bus = self.bus * BUS_TONS_CO2
 		self.normalized_car = self.car * CAR_TONS_CO2
 		self.normalized_plane = self.plane * PLANE_TONS_CO2
-
 	end
 
 	def aggregate
@@ -30,15 +29,3 @@ class Travel < ActiveRecord::Base
 	end
 
 end
-
-=begin 
-
-tons CO2 per mile
-
-plane = 0.0005
-car = 0.00042
-bus = 0.00033
-train = 0.000165
-walk = 0
-
-=end
