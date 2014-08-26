@@ -22,9 +22,9 @@ class TravelsController < ApplicationController
 
 end
 
-# number_string = params[:distance_comma_separated]
+# number_string = params[:distance_dash_separated]
 
-	# walk_list = number_string.split(',')
+	# walk_list = number_string.split('-')
 	# total = 0
 	# 	walk_list.each do |num|
  #  			total += num
