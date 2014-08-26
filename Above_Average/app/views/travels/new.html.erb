@@ -11,6 +11,8 @@
 	<%= form_for([@user, @travel], method: :post) do |f| %>
 		<%= f.label "How much did you walk?" %><br>
 		<%= f.text_field :walk, placeholder: "in feet" %><br>
+		<%= f.label "What distance did you ride a bike?" %><br>
+		<%= f.text_field :bicycle, placeholder: "in miles" %><br>
 		<%= f.label "What distance did you train?" %><br>
 		<%= f.text_field :train, placeholder: "in miles" %><br>
 		<%= f.label "What distance did you ride the bus?" %><br>

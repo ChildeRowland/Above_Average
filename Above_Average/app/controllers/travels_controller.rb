@@ -17,7 +17,7 @@ class TravelsController < ApplicationController
 
 	private
 	def travel_params
-		params.require(:travel).permit(:walk, :train, :bus, :car, :plane)
+		params.require(:travel).permit(:walk, :bicycle, :train, :bus, :car, :plane)
 	end
 
 end
