@@ -21,6 +21,36 @@
   background-size: cover;
 }
 
+/***********
+WELCOME PAGE
+************/
+
+.welcome-instruction {
+	margin: 15px;
+}
+
+
+/***********
+WELCOME PAGE
+************/
+
+.about-instruction {
+	margin: 15px;
+	padding: 10px;
+	background-color: rgba(255,255,255,0.7);
+	background: linear-gradient(rgba(255,255,255,0.09), rgba(255,255,255,0.9));
+}
+
+.about-instruction p {
+	font-size: 18px;
+	text-shadow: -2px -2px 3px white;
+}
+
+.about-instruction h3 {
+	font-size: 26px;
+}
+
+
 /************ 
 PROFILE FORMS 
 ************/

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  get '/about' => 'home#about', as: :about
+
   get '/punch' => 'punch#index', as: :punch
 
   get '/graphs' => 'graphs#index', as: :graphs
