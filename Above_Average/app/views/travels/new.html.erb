@@ -9,15 +9,18 @@
 
 		<div class="travel-form">
 
+
 			<p>
 				Tell us how you travelled yesterday:
 			</p>
 
-			You can use Google Maps to calculate your trip. <%= link_to 'google maps', "https://www.google.com/maps/preview", target: "_blank" %> 
+			<%= link_to 'google maps', "https://www.google.com/maps/preview", target: "_blank" %> You can use Google Maps to calculate your trip.
 
 			<%= form_for([@user, @travel], method: :post) do |f| %>
 			<%= f.label "How much did you walk?" %><br>
-			<%= f.text_field :walk, name: "walking_distance_comma_separated", placeholder: "in feet" %><br>
+			<%= f.text_field :walk, placeholder: "in feet" %><br>
+			<%= f.label "What distance did you ride a bike?" %><br>
+			<%= f.text_field :bicycle, placeholder: "in miles" %><br>
 			<%= f.label "What distance did you train?" %><br>
 			<%= f.text_field :train, placeholder: "in miles" %><br>
 			<%= f.label "What distance did you ride the bus?" %><br>
@@ -29,6 +32,8 @@
 			<%= f.submit "Boom" %>
 			<% end %>
 		</div>
+
 	</div>
+
 </div>
 
