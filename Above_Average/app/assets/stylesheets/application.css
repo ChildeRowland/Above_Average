@@ -20,3 +20,106 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
+/************ 
+PROFILE FORMS 
+************/
+
+.profile-instruction, .utility-instruction, .recycling-instruction {
+	width: 275px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.profile-form {
+	background-color: rgba(225,50,75,5.0);
+	background: linear-gradient(rgba(225,50,75,0.4), rgba(225,50,75,5.0));
+	padding: 25px;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0px 45px 45px 0px;
+}
+
+.profile-form input {
+	width: 200px;
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.profile-form label {
+	text-shadow: -2px 2px 3px black;
+	font-weight: 100;
+	font-size: 18px;
+	letter-spacing: 1px;
+	color: rgb(175,250,45);
+	width: 200px;
+}
+
+
+/************
+UTILITY FORMS 
+************/
+
+.utility-instruction {
+
+}
+
+.utility-form {
+	background-color: rgba(50,250,75,5.0);
+	background: linear-gradient(rgba(50,75,250,0.4), rgba(50,75,250,5.0));
+	padding: 25px;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0px 45px 45px 0px;
+}
+
+.utility-form input {
+	width: 200px;
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.utility-form label {
+	text-shadow: -2px 2px 3px black;
+	font-weight: 100;
+	font-size: 18px;
+	letter-spacing: 1px;
+	color: rgb(255,155,0);
+	width: 200px;
+}
+
+/**************
+RECYCLING FORMS 
+**************/
+
+.recycling-instruction {
+}
+
+.recycling-form {
+	background-color: rgba(50,250,75,5.0);
+	background: linear-gradient(rgba(50,75,250,0.4), rgba(50,75,250,5.0));
+	padding: 25px;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0px 45px 45px 0px;
+}
+
+
+.recycling-form input {
+
+}
+
+.recycling-form label {
+
+}
+
+
+/***********
+TRAVEL FORMS 
+************/
+

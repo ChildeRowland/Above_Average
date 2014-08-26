@@ -1,15 +1,24 @@
-<h3>
-	Fill out some profile info
-</h3>
 
-<%= form_for([@user, @profile], method: :post) do |f| %>
-	<%= f.label "First Name" %><br>
-	<%= f.text_field :fname %><br>
-	<%= f.label "Age" %><br>
-	<%= f.text_field :age %><br>
-	<%= f.label "Zip" %><br>
-	<%= f.text_field :zip %><br>
-	<%= f.label "Inculding yourself, how may people live on your home?" %><br>
-	<%= f.text_field :total_household_members %><br>
-	<%= f.submit "Add Profile" %>
-<% end %>
+<div class="profile-instruction">
+	<h3>
+		Add a Profile
+	</h3>
+
+	<p>
+		Help us get to know you better by answering a few questions about yourself.
+	</p>
+</div>
+
+<div class="profile-form">
+	<%= form_for([@user, @profile], method: :post) do |f| %>
+		<%= f.label "First Name" %><br>
+		<%= f.text_field :fname %><br>
+		<%= f.label "Age" %><br>
+		<%= f.text_field :age %><br>
+		<%= f.label "Zip" %><br>
+		<%= f.text_field :zip %><br>
+		<%= f.label "Inculding yourself, how may people live in your home?" %><br>
+		<%= f.text_field :total_household_members %><br>
+		<%= f.submit "Add Profile" %>
+	<% end %>
+</div>

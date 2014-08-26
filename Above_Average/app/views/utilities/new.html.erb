@@ -1,16 +1,24 @@
-<p>
-	Tell us about your household utilities bill.  Enter a number in each field, and we'll use the compare your carbon footprint against the other users.
-</p>
 
-<%= form_for([@user, @utility], method: :post) do |f| %>
-	<%= f.label "Enter the kWh of electricity used:" %><br>
-	<%= f.text_field :kwh %><br>
-	<%= f.label "Enter the therms of gas used:" %><br>
-	<%= f.text_field :therms %><br>
-	<%= f.label "Enter the gallons of water used:" %><br>
-	<%= f.text_field :gallons %><br>
-	<%= f.submit "Submit" %>
-<% end %>
+<div class="utility-instruction">
+	<h3>
+		Open your Utility bill
+	</h3>
+	<p>
+		Enter a number in each field, and we'll use the compare your carbon footprint against the other users.
+	</p>
+</div>
+
+<div class="utility-form">
+	<%= form_for([@user, @utility], method: :post) do |f| %>
+		<%= f.label "Electricity used:" %><br>
+		<%= f.text_field :kwh, placeholder: "kwh" %><br>
+		<%= f.label "Gas used:" %><br>
+		<%= f.text_field :therms, placeholder: "therms" %><br>
+		<%= f.label "Water used:" %><br>
+		<%= f.text_field :gallons, placeholder: "gallons" %><br>
+		<%= f.submit "Submit" %>
+	<% end %>
+</div>
 
 <div>
 	<% if @utility.errors.full_messages.any? %>
