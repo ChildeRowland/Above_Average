@@ -7,11 +7,25 @@ class GraphsController < ApplicationController
 		@user = current_user
 
 		if @user.profiles.empty?
-			redirect_to "/fill-out-profile"
+			flash[:notice] = "Please complete a User Profile to continue"
+			redirect_to new_user_profile_path
+		end
+
+		if @user.utilities.empty?
+			flash[:notice] = "Please complete the Utilities survey to continue"
+			redirect_to new_user_utility_path
 		end
 		
-	
+		if @user.recyclings.empty?
+			flash[:notice] = "Please complete the Recycling survey to continue"
+			redirect_to new_user_recycling_path
+		end
 
+		# if @user.travels.empty?
+		# 	flash[:notice] = "Please complete the Travel survey to continue"
+		# 	redirect_to new_user_travel_path
+		# end
+	
 
 		# @profile = @user.profiles
 	 	@profiles = Profile.all
@@ -22,6 +36,9 @@ class GraphsController < ApplicationController
 		
 		@recycling = @user.recyclings
 		@recyclings = Recycling.all
+
+		# @travel = @user.travels
+		# @travels = Travel.all
 #profile
 		@average_age = Profile.average(:age)
 		@average_total_household_members = Profile.average(:total_household_members)
@@ -35,13 +52,26 @@ class GraphsController < ApplicationController
 		@average_compost = Recycling.average(:compost)
 		@average_fabric = Recycling.average(:fabric)
 		@average_ewaste = Recycling.average(:ewaste)
-# commuting
-		# @average_local = Recycling.average(:local)
-		# @average_compost = Recycling.average(:compost)
-		# @average_fabric = Recycling.average(:fabric)
-		# @average_ewaste = Recycling.average(:ewaste)
+
+
+
+# travel
+		# @average_? = Travel.average(:local)
+		# @average_? = Travel.average(:compost)
+		# @average_fabric = Travel.average(:fabric)
+		# @average_ewaste = Travel.average(:ewaste)
 
 	end
+
+	#failed attempts at translating integers into strings for use output
+		# if @recycling.compost = 50
+		# 	puts "rarely"
+		# end
+
+		# if
+	# 	@user.recyclings.where("compost" < 100)
+	# 	puts "rarely"
+	# end
 
 #to show results of other users questions, use .count with a group.
 
@@ -49,10 +79,12 @@ class GraphsController < ApplicationController
 
 	end
 
-#paste to punchlist: 
-#compare current user to self over time across all data
-#compare all users data compare to all other users data 
-#compare against user
+	# if
+	# 	@user.recyclings.where("compost" < 100)
+	# 	puts "rarely"
+	# end
+
+
 
 
 end
