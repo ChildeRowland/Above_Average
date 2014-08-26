@@ -13,12 +13,14 @@ html {
 }
 
 body {
+  
   background: url(bg.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   margin: 0;
+
 }
 article,
 aside,
@@ -92,15 +94,19 @@ sub {
 }
 .background-image
 {
+ 
+ 
   background: url(../images/bg.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  
 }
 
 img {
   border: 0;
+  opacity: 0.5;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -259,7 +265,7 @@ th {
   }
   .table td,
   .table th {
-    background-color: #fff !important;
+    background-color: #f0ad4e !important;
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -911,11 +917,12 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "FuturaStd-Book", Futura, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
+
 }
 input,
 button,
@@ -3083,6 +3090,7 @@ fieldset[disabled] .btn-link:focus {
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
+  color: #f0ad4e;
 }
 .btn-block {
   display: block;
@@ -3594,6 +3602,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  
 }
 .nav > li {
   position: relative;
@@ -3784,10 +3793,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
+  color: #f0ad4e;
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
+
 }
+
 @media (min-width: 768px) {
   .navbar {
     border-radius: 4px;
@@ -3894,14 +3906,17 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-width: 1px 0 0;
 }
 .navbar-brand {
+  color: #f0ad4e;
   float: left;
   height: 50px;
   padding: 15px 15px;
-  font-size: 18px;
+  font-size: 26px;
   line-height: 20px;
+
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
+  color: #f0ad4e;
   text-decoration: none;
 }
 @media (min-width: 768px) {
@@ -4625,11 +4640,8 @@ a.thumbnail.active {
   color: #333;
 }
 .alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
 }
+
 .alert h4 {
   margin-top: 0;
   color: inherit;

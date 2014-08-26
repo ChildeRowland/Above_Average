@@ -1,5 +1,5 @@
 
-<div class="utility-instruction">
+<div class="travel-instruction">
 	<h3>
 		Open your Utility bill
 	</h3>
@@ -8,7 +8,7 @@
 	</p>
 </div>
 
-<div class="utility-form">
+<div class="travel-form">
 	<%= form_for([@user, @utility], method: :post) do |f| %>
 		<%= f.label "Electricity used:" %><br>
 		<%= f.text_field :kwh, placeholder: "kwh" %><br>
