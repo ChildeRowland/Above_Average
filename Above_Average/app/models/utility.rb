@@ -17,9 +17,9 @@ class Utility < ActiveRecord::Base
 
 	belongs_to :user
 
-	KWH_TONS_CO2 = 0.0008
-	THERMS_TONS_CO2 = 0.006
-	GALLONS_TONS_CO2 = 0.005
+	KWH_POUNDS_CO2 = 1.6
+	THERMS_POUNDS_CO2 = 12
+	GALLONS_POUNDS_CO2 = 10
 
 	private
 
@@ -27,9 +27,9 @@ class Utility < ActiveRecord::Base
 
 		p = user.profiles.last.total_household_members
 
-		self.normalized_kwh = self.kwh / p * KWH_TONS_CO2
-		self.normalized_therms = self.therms / p * THERMS_TONS_CO2
-		self.normalized_gallons = self.gallons / p * GALLONS_TONS_CO2
+		self.normalized_kwh = self.kwh / p * KWH_POUNDS_CO2
+		self.normalized_therms = self.therms / p * THERMS_POUNDS_CO2
+		self.normalized_gallons = self.gallons / p * GALLONS_POUNDS_CO2
  	end
 
  	def aggregate
