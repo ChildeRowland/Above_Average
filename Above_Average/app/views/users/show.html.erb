@@ -4,7 +4,7 @@
 		<% if !@user.profiles.empty? %>
 			<%= "#{@user.profiles.last.fname} survey page" %>
 		<% else %>
-			Hey... you. Fill out the profile!
+			Hey... you. Fill out your profile!
 		<% end %>
 	</h3>
 
@@ -30,7 +30,14 @@
 
 	<% if @user.profiles.last.created_at < 180.days.ago %>
 		<div class="user-form-divs">
-			<%= link_to 'Update your Profile', new_user_profile_path(:user_id => @user.id), method: :get %>
+			<%= link_to(new_user_profile_path(:user_id => @user.id), method: :get) do %>
+				<div>
+					<p>
+						Update your Profile
+					</p>
+					<img src="/assets/profile.png">
+				</div>
+			<% end %>
 		</div>
 	<% end %>
 

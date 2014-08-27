@@ -7,7 +7,7 @@
 }
 
 .user-introduction {
-	margin: 25px;
+	margin: 35px;
 }
 
 .user-introduction h3 {
@@ -25,12 +25,12 @@
 	max-width: 250px;
 	border-radius: 12px;
 	transition: background-color 0.5s ease;
-	background-color: rgba(225,250,175,5.0);
+	background-color: rgba(255, 255, 255, 1);
 }
 
 .user-form-divs:hover {
 	transition: background-color 0.5s ease;
-	background-color: rgba(255, 174, 3, 10.0);
+	background-color: rgba(255, 210, 68, 1);
 }
 
 .user-form-divs p {

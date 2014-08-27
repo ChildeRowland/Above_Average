@@ -14,8 +14,8 @@
  *= require_self
  */
 
-.nameasdf {
-	font-size: 50px;
+.test {
+	position: fixed;
 }
 
 /***********
