@@ -1,20 +1,21 @@
 
 <div style="background-color: rgba(250,250,250,0.6)">
+
 	<div class="travel-instruction">
-
-
 		<h3>
 			Tell us how you travelled yesterday:
 		</h3>
 
 		<p>
 			You can use 
-			<%= link_to 'Google Maps', "https://www.google.com/maps/preview", target: "_blank" %> to calculate your trips.  Click on the link to open in a new page.  On the map, right click / control click and select 'Measure Distance' on the dropdown menu.  Add all the points for a single trip, then add the value into the form.
+			<%= link_to 'Google Maps', "https://www.google.com/maps/preview", target: "_blank" %> 
+			to calculate your trips.  Click on the link to open in a new page.  On the map, right click / control click and select 'Measure Distance' on the dropdown menu.  Add all the points for a single trip, then add the value into the form.
 		</p>
+	</div>
 
-		<div class="travel-form">
+	<div class="travel-form">
 
-			<%= form_for([@user, @travel], method: :post) do |f| %>
+		<%= form_for([@user, @travel], method: :post) do |f| %>
 			<%= f.label "How much did you walk?" %><br>
 			<%= f.text_field :walk, placeholder: "in feet" %><br>
 			<%= f.label "What distance did you ride a bike?" %><br>
@@ -28,10 +29,7 @@
 			<%= f.label "Did you fly?" %><br>
 			<%= f.text_field :plane, placeholder: "in miles" %><br>
 			<%= f.submit "Submit" %>
-			<% end %>
-		</div>
-
+		<% end %>
 	</div>
-
 </div>
 

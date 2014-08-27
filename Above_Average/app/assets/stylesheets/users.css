@@ -6,18 +6,43 @@
 	margin: 0px 10px 0px 10px;
 }
 
+.user-introduction {
+	margin: 25px;
+}
+
+.user-introduction h3 {
+	font-size: 28px;
+}
+
+.user-introduction p {
+	font-size: 18px;
+}
+
 .user-form-divs {
+	float: left;
 	padding: 10px;
 	margin: 25px;
 	max-width: 250px;
 	border-radius: 12px;
-	background-color: rgba(225,250,175,0.8);
+	transition: background-color 0.5s ease;
+	background-color: rgba(225,250,175,5.0);
+}
+
+.user-form-divs:hover {
+	transition: background-color 0.5s ease;
+	background-color: rgba(255, 174, 3, 10.0);
 }
 
 .user-form-divs p {
 	width: 200px;
+	font-size: 18px;
 	margin-left: auto;
 	margin-right: auto;
+	padding-left: 15px;
+}
+
+.user-form-divs a:hover {
+	text-decoration: none;
 }
 
 .user-form-divs img {
@@ -27,3 +52,5 @@
 	margin-right: auto;
 	border-radius: 25px;
 }
+
+

@@ -1,57 +1,76 @@
-<h4>
-	 <%= @user.email %> home page
-</h4>
 
-<p>
-	Give some info:
-</p>
+<div class="user-introduction">
+	<h3>
+		<% if !@user.profiles.empty? %>
+			<%= "#{@user.profiles.last.fname} survey page" %>
+		<% else %>
+			Hey... you. Fill out the profile!
+		<% end %>
+	</h3>
+
+	<p>
+		Find all the surveys you are eligible for.  Most surveys can only be completed after some time has lapsed.  Check back for more chances.
+	</p>
+</div>
+
 
 <% if @user.profiles.empty? %>
-flash[:notice] = "Please complete a User Profile to continue"
-redirect_to new_user_profile_path
-<% end %>
-
-<% if @user.profiles.last.nil? %>
-<div class="user-form-divs">
-	<%= link_to 'Create a Profile', new_user_profile_path(:user_id => @user.id), method: :get %>
-</div>
-<% end %>
-
-<% if @user.utilities.empty? %>
-flash[:notice] = "Please complete the Utilities survey to continue"
-redirect_to new_user_utility_path
-<% end %>
-
-<% if @user.utilities.last.nil? || @user.utilities.last.created_at < 30.day.ago %>
-<div class="user-form-divs">
-	<%= link_to(new_user_utility_path(:user_id => @user.id), method: :get) do %>
-	<div>
-		<p>Tell us about your Utiity bill.</p>
-		<img src="/assets/utility.jpg">
+	<div class="user-form-divs">
+		<%= link_to(new_user_profile_path(:user_id => @user.id), method: :get) do %>
+		<div>
+			<p>
+				First, create a Profile
+			</p>
+			<img src="/assets/profile.png">
+		</div>
+			<% end %>
 	</div>
+
+<% else %>
+
+	<% if @user.profiles.last.created_at < 180.days.ago %>
+		<div class="user-form-divs">
+			<%= link_to 'Update your Profile', new_user_profile_path(:user_id => @user.id), method: :get %>
+		</div>
 	<% end %>
-</div>
-<% end %>
 
-<% if @user.recyclings.empty? %>
-flash[:notice] = "Please complete the Recycling survey to continue"
-redirect_to new_user_recycling_path
-<% end %>
+	<% if @user.utilities.last.nil? || @user.utilities.last.created_at < 30.day.ago %>
+		<div class="user-form-divs">
+			<%= link_to(new_user_utility_path(:user_id => @user.id), method: :get) do %>
+		<div>
+			<p>Household Utiities</p>
+			<img src="/assets/utility.jpg">
+		</div>
+			<% end %>
+		</div>
+	<% end %>
+
+	<% if @user.recyclings.last.nil? || @user.recyclings.last.created_at < 45.day.ago %>
+		<div class="user-form-divs">
+			<%= link_to(new_user_recycling_path(:user_id => @user.id), method: :get) do %>
+			<div>
+				<p>
+					Reccyling Habits
+				</p>
+				<img src="/assets/recycle.png">
+			</div>
+			<% end %>
+		</div>
+	<% end %>
 
 
-<% if @user.recyclings.last.nil? || @user.recyclings.last.created_at < 45.day.ago %>
-<div class="user-form-divs">
-	<%= link_to "Let's talk about your recycling habits", new_user_recycling_path(:user_id => @user.id), method: :get %>
-</div>
-<% end %>
+	<% if @user.travels.last.nil? || @user.travels.last.created_at < 1.day.ago %>
+		<div class="user-form-divs">
+			<%= link_to(new_user_travel_path(:user_id => @user.id), method: :get) do %>
+			<div>
+				<p>
+					Travel or Commute
+				</p>
+				<img src="/assets/travel.jpg">
+			</div>
+			<% end %>
+		</div>
+	<% end %>
 
-<% if @user.travels.empty? %>
-flash[:notice] = "Please complete the Travel survey to continue"
-redirect_to new_user_travel_path
-<% end %>
 
-<% if @user.travels.last.nil? || @user.travels.last.created_at < 1.day.ago %>
-<div class="user-form-divs">
-	<%= link_to "Tell us about your travels", new_user_travel_path(:user_id => @user.id), method: :get %>
-</div>
 <% end %>
