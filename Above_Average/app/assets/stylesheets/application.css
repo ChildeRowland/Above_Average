@@ -55,7 +55,7 @@ WELCOME PAGE
 PROFILE FORMS 
 ************/
 
-.profile-instruction, .utility-instruction, .recycling-instruction .travel-instruction {	
+.profile-instruction, .utility-instruction, .recycling-instruction, .travel-instruction {	
 	width: 275px;
 	margin-left: auto;
 	margin-right: auto;
