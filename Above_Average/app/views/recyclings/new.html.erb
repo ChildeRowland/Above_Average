@@ -13,7 +13,7 @@
 
 		<%= f.label "Local recycling, generally required" %><br>
 		<div>
-		<%= f.range_field :local, :min=>0, :max=>100, :step =>20, :value=>0, :class=>"local-slide" %>
+		<%= f.range_field :local, :min=>0, :max=>100, :step =>20, :value=>40, :class=>"local-slide" %>
 
 			<p id="local-slider-value"></p>
 		</div>
@@ -23,24 +23,24 @@
 					var val = $(this).val();
 					var msg = "";
 					if (val == 0) {
-						msg = "Does not Apply"
-					} else if (val <= 20) {
-						msg = "Occationally";
-					} else if (val <= 40) {
-						msg = 'Sometimes';
-					} else if (val <= 60 ) {
-						msg = "Most of the Time";
-					} else if (val <= 80 ) {
-						msg = "Most of the Time";
+						msg = "Does not apply to me, because I never use anything.  I've never read a newspaper, eaten take-out, or purchased anything that comes in no biodegradable packaging.  When I need a temporary container, I make it out of hair and fingernails."
+					} else if (val == 20) {
+						msg = "Ugh.  It’s kinda a hassle.  I try to get the big stuff, but don’t sweat it.";
+					} else if (val == 40) {
+						msg = "I don’t think about it too much.  It’s a connivence thing.  If I have the opportunity I will totally recycle.";
+					} else if (val == 60 ) {
+						msg = "I could do better, but I could totally do worse.  I don’t sweat using the garbage, but keep things separate around the house.  Sometimes if a container has been in the refrigerator too long, I’ll toss it instead of cleaning it out and recycling.";
+					} else if (val == 80 ) {
+						msg = "I follow the local rules to the letter in my own home.  Occasionally, when I’m out and about, I’ll use the trash can.  I trust the documentation that the city/state provides, and assume that everything gets to the best place.";
 					} else
-						msg = "Always";
+						msg = "I never waste anything.  When I use a plastic bottle, I’ll carry it around with me until it can be properly recycled.  I won’t use a garbage receptacles that says: ‘Contents Sorted and Recycled’ unless I research the validity of the claim first, and verify the quality of the recycling process.";
 					$('#local-slider-value').html(msg);
 				});
 			});
 			</script>
 
 		<%= f.label "Compost and Food Waste" %><br>
-		<%= f.range_field :compost, :min=>0, :max=>100, :step =>20, :value=>0, :class=>"compost-slide" %>
+		<%= f.range_field :compost, :min=>0, :max=>100, :step =>20, :value=>40, :class=>"compost-slide" %>
 
 			<p id="compost-slider-value"></p>
 
@@ -50,24 +50,24 @@
 					var val = $(this).val();
 					var msg = "";
 					if (val == 0) {
-						msg = "Does not Apply"
+						msg = "Doesn’t apply to me, because I eat all my food all the time."
 					} else if (val <= 20) {
-						msg = "Occationally";
+						msg = "Wait what’s this?  I think composted my food in San Francisco.";
 					} else if (val <= 40) {
-						msg = 'Sometimes';
+						msg = "I mostly use all the food I buy.  I try to freeze things before they go bad, or sauté things all together, or blend questionable fruit in a smoothy.  Sometimes the dog gets the leftovers.";
 					} else if (val <= 60 ) {
-						msg = "Most of the Time";
+						msg = "It’s kinda smelly, but when I have to time, I bring some  scraps to the farmers market.  They have a small bin for deposits.";
 					} else if (val <= 80 ) {
-						msg = "Most of the Time";
+						msg = "I do pretty well.  But sometimes it’s a hassle.";
 					} else
-						msg = "Always";
+						msg = "I compost all my food scraps.";
 					$('#compost-slider-value').html(msg);
 				});
 			});
 			</script>
 
 		<%= f.label "Clothes and Fabric" %><br>
-		<%= f.range_field :fabric, :min=>0, :max=>100, :step =>20, :value=>0, :class=>"fabric-slide" %>
+		<%= f.range_field :fabric, :min=>0, :max=>100, :step =>20, :value=>40, :class=>"fabric-slide" %>
 
 			<p id="fabric-slider-value"></p>
 
@@ -85,9 +85,9 @@
 					} else if (val <= 60 ) {
 						msg = "Most of the Time";
 					} else if (val <= 80 ) {
-						msg = "Most of the Time";
+						msg = "Most of my clothes are donated.  I try to recycle other types of fabric, but the recycling center only accepts fabric a few times a year, and last time I forgot.";
 					} else
-						msg = "Always";
+						msg = "All my old clothes are donated to a responsible organization.  Sheets and towels are brought to a recycling center and reused.  I like to reuse old fabric in creative ways.";
 					$('#fabric-slider-value').html(msg);
 				});
 			});

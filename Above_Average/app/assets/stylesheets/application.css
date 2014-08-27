@@ -131,7 +131,7 @@ RECYCLING FORMS
 
 .recycling-form {
 	background-color: rgba(50,250,75,5.0);
-	background: linear-gradient(rgba(50,75,250,0.4), rgba(50,75,250,5.0));
+	background: linear-gradient(rgba(50,75,250,0.6), rgba(50,75,250,5.0));
 	padding: 25px;
 	width: 300px;
 	margin-left: auto;
@@ -156,6 +156,15 @@ RECYCLING FORMS
 	color: rgb(255,155,0);
 	width: 200px;
 
+}
+
+#local-slider-value, #compost-slider-value, #fabric-slider-value {
+	font-family: Arial;
+	letter-spacing: 1.5px;
+	color: white;
+	text-shadow: -1px 2px 2px grey;
+	font-size: 17px;
+	font-weight: 100;
 }
 
 

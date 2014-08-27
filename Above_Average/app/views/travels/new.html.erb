@@ -1,6 +1,16 @@
 
 <div style="background-color: rgba(250,250,250,0.6)">
 
+<div class="validation-messages">
+	<% if @recycling.errors.any? %>
+		<ul>
+			<% @recycling.errors.each do |field, msg| %>
+				<li><%= msg %></li> <br />
+   			<% end %>
+   		<ul>
+	<% end %>
+</div>
+
 	<div class="travel-instruction">
 		<h3>
 			Tell us how you travelled yesterday:
