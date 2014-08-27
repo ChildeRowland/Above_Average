@@ -12,8 +12,8 @@ class UtilitiesController < ApplicationController
 			flash[:notice] = "Info submited, thanks!"
 			redirect_to user_path @current_user
 		else
-			flash[:notice] = "Something went wrong, please try again."
-			redirect_to :back
+			flash[:notice] = "Something went wrong, but you can make these changes and try again:"
+			render :new
 		end
 	end
 

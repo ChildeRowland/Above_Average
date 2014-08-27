@@ -1,16 +1,22 @@
 class Utility < ActiveRecord::Base
 
 	validates :kwh,
+		:exclusion => { :in => -1000..-1, 
+			:message => "No negitive values please."},
 		:numericality =>
-		{:message => "Numbers only please, no decimals."}
+		{:message => "Kilo Watts per Hour requires numbers please, no decimals."}
 
 	validates :therms,
+		:exclusion => { :in => -1000..-1, 
+			:message => "No negitive values please."},
 		:numericality =>
-		{:message => "Numbers only please, no decimals."}
+		{:message => "Therms in numbers only please, no decimals."}
 
 	validates :gallons,
+		:exclusion => { :in => -1000..-1, 
+			:message => "No negitive values please."},
 		:numericality =>
-		{:message => "Numbers only please, no decimals."}
+		{:message => "Gallons in numbers only please, no decimals."}
 
 
 	before_save :normalize, :aggregate
@@ -37,5 +43,3 @@ class Utility < ActiveRecord::Base
  	end
 
 end
-
-# / User.find(params[:user_id]).profiles.last.total_household_members

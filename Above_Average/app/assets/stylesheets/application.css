@@ -18,6 +18,10 @@
 FLASH MESSAGES
 **************/
 
+.validation-messages {
+
+}
+
 .notice, .alert {
 	
 }
