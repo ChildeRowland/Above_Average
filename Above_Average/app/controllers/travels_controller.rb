@@ -9,6 +9,11 @@ class TravelsController < ApplicationController
 		@user = current_user
 		@travel = @user.travels.build(travel_params)
 		@travel.walk_string = params[:travel][:walk]
+		@travel.bicycle_string = params[:travel][:bicycle]
+		@travel.train_string = params[:travel][:train]
+		@travel.bus_string = params[:travel][:bus]
+		@travel.car_string = params[:travel][:car]
+		@travel.plane_string = params[:travel][:plane]
 		if @travel.save 
 			redirect_to user_path @current_user
 		else

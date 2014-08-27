@@ -1,26 +1,36 @@
 class Travel < ActiveRecord::Base
 
 	#validates :walk, :bicycle, :train, :bus, :car, :plane, numericality: true
+	
 	attr_accessor :walk_string
+	attr_accessor :bicycle_string
+	attr_accessor :train_string
+	attr_accessor :bus_string
+	attr_accessor :car_string
+	attr_accessor :plane_string
 
-	before_save :sum_walked_feet
+	before_save :sum_walked_distance
+	before_save :sum_bicycle_distance
+	before_save :sum_train_distance
+	before_save :sum_bus_distance
+	before_save :sum_car_distance
+	before_save :sum_plane_distance
 
 	before_save :normalize
-
 	before_save :aggregate
 
 	belongs_to :user
 
-	WALK_TONS_CO2 = 0
-	BICYCLE_TONS_CO2 = 0
-	TRAIN_TONS_CO2 = 0.000165
-	BUS_TONS_CO2 = 0.00033
-	CAR_TONS_CO2 = 0.00042
-	PLANE_TONS_CO2 = 0.0005
+	WALK_POUNDS_CO2 = 0
+	BICYCLE_POUNDS_CO2 = 0
+	TRAIN_POUNDS_CO2 = 0.33
+	BUS_POUNDS_CO2 = 0.66
+	CAR_POUNDS_CO2 = 0.84
+	PLANE_POUNDS_CO2 = 1.0
 
 	private
 
-	def sum_walked_feet
+	def sum_walked_distance
 		walk_list = self.walk_string.split(" ")
 		total = 0
 		walk_list.each do |num|
@@ -29,13 +39,58 @@ class Travel < ActiveRecord::Base
       	self.walk = total
 	end
 
+	def sum_bicycle_distance
+		bicycle_list = self.bicycle_string.split(" ")
+		total = 0
+		bicycle_list.each do |num|
+  			total += num.to_i
+		end
+      	self.bicycle = total
+	end
+
+	def sum_train_distance
+		train_list = self.train_string.split(" ")
+		total = 0
+		train_list.each do |num|
+  			total += num.to_i
+		end
+      	self.train = total
+	end
+
+	def sum_bus_distance
+		bus_list = self.bus_string.split(" ")
+		total = 0
+		bus_list.each do |num|
+  			total += num.to_i
+		end
+      	self.bus = total
+	end
+
+	def sum_car_distance
+		car_list = self.car_string.split(" ")
+		total = 0
+		car_list.each do |num|
+  			total += num.to_i
+		end
+      	self.car = total
+	end
+
+	def sum_plane_distance
+		plane_list = self.plane_string.split(" ")
+		total = 0
+		plane_list.each do |num|
+  			total += num.to_i
+		end
+      	self.plane = total
+	end
+
 	def normalize
-		self.normalized_walk = self.walk * WALK_TONS_CO2
-		self.normalized_bicycle = self.bicycle * BICYCLE_TONS_CO2
-		self.normalized_train = self.train * TRAIN_TONS_CO2
-		self.normalized_bus = self.bus * BUS_TONS_CO2
-		self.normalized_car = self.car * CAR_TONS_CO2
-		self.normalized_plane = self.plane * PLANE_TONS_CO2
+		self.normalized_walk = self.walk * WALK_POUNDS_CO2
+		self.normalized_bicycle = self.bicycle * BICYCLE_POUNDS_CO2
+		self.normalized_train = self.train * TRAIN_POUNDS_CO2
+		self.normalized_bus = self.bus * BUS_POUNDS_CO2
+		self.normalized_car = self.car * CAR_POUNDS_CO2
+		self.normalized_plane = self.plane * PLANE_POUNDS_CO2
 	end
 
 	def aggregate
