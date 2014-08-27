@@ -1,4 +1,14 @@
 
+<div class="validation-messages" >
+	<% if @profile.errors.any? %>
+		<ul>
+			<% @profile.errors.each do | field, msg| %>
+				<li><%= msg %></li> <br />
+   			<% end %>
+   		<ul>
+	<% end %>
+</div>
+
 <div class="profile-instruction">
 	<h3>
 		Add a Profile
@@ -16,7 +26,7 @@
 		<%= f.label "Age" %><br>
 		<%= f.text_field :age %><br>
 		<%= f.label "Zip" %><br>
-		<%= f.text_field :zip %><br>
+		<%= f.text_field :zip, placeholder: "5 digit zip" %><br>
 		<%= f.label "Inculding yourself, how may people live in your home?" %><br>
 		<%= f.text_field :total_household_members %><br>
 		<%= f.submit "Add Profile" %>
