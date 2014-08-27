@@ -18,7 +18,11 @@ Rails.application.routes.draw do
 
   get '/punch' => 'punch#index', as: :punch
 
-  get '/graphs' => 'graphs#index', as: :graphs
+  get '/master_graph' => 'graphs#master_graph', as: :mastergraph
+
+   get '/detailedgraphs' => 'graphs#detailedgraphs', as: :detailedgraphs
+
+  get '/example' => 'graphs#example', as: :example
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

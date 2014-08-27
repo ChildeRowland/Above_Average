@@ -1,7 +1,7 @@
 class GraphsController < ApplicationController
-	def index
+	def master_graph
 
-		
+
 #users
 		@users = User.all 
 		@user = current_user
@@ -53,18 +53,32 @@ class GraphsController < ApplicationController
 		@average_fabric = Recycling.average(:fabric)
 		@average_ewaste = Recycling.average(:ewaste)
 
-
-
 # travel
 		@average_walk = Travel.average(:walk)
-		@average_bike = Travel.average(:bike)
+		@average_bicycle = Travel.average(:bicycle)
 		@average_train = Travel.average(:train)
 		@average_bus = Travel.average(:bus)
 		@average_car = Travel.average(:car)
 		@average_plane = Travel.average(:plane)
 		
+# travel totals
+		
+		@user_average_total_travels = Travel.where('user_id = ?', @user.id).average(:total)
+		@user_average_total_utilities = Utility.where('user_id = ?', @user.id).average(:total)
+		@CO2 = (@user_average_total_travels + @user_average_total_utilities) 
+
+		@average_total_travels = Travel.average(:total)
+		@average_total_utilities = Utility.average(:total)
+		@aCO2 = (@average_total_travels + @average_total_utilities) 
+
+		# @ = Travel.where(:total>100)
+
+		# = (@user_average_total_travels + @user_average_total_utilities) + 
+
 
 	end
+
+
 
 	#failed attempts at translating integers into strings for use output
 		# if @recycling.compost = 50
