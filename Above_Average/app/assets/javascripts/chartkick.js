@@ -232,10 +232,15 @@
       var Highcharts = window.Highcharts;
 
       var defaultOptions = {
-        chart: {},
-        xAxis: {
-          labels: {
-            style: {
+        chart: {
+          
+        },
+        xAxis: 
+        {
+          labels: 
+          {
+            style: 
+            {
               fontSize: "12px"
             }
           }
