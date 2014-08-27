@@ -1,6 +1,25 @@
 class Travel < ActiveRecord::Base
 
-	#validates :walk, :bicycle, :train, :bus, :car, :plane, numericality: true
+	# validates_format_of
+
+	# validates :walk, 
+	# 	:numericality => {:message => "Numbers only please, no decimals."}
+
+	# validates :bicycle, 
+	# 	:numericality => {:message => "Numbers only please, no decimals."}
+
+	# validates :train, 
+	# 	:numericality => {:message => "Numbers only please, no decimals."}
+
+	# validates :bus, 
+	# 	:numericality => {:message => "Numbers only please, no decimals."}
+
+	# validates :car, 
+	# 	:numericality => {:message => "Numbers only please, no decimals."}
+
+	# validates :plane, 
+	# 	:numericality => {:message => "Numbers only please, no decimals."}
+
 	
 	attr_accessor :walk_string
 	attr_accessor :bicycle_string
