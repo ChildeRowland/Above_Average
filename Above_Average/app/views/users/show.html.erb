@@ -1,57 +1,93 @@
-<h4>
-	 <%= @user.email %> home page
-</h4>
+<html>
 
-<p>
-	Give some info:
-</p>
+<head>
+	<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+</head>
+	<html>
+	<h4>
+		<%= @user.email %> home page
+	</h4>
+<!-- 
+	<% if @user.profiles.empty? %>
+	flash[:notice] = "Please complete a User Profile to continue"
+	redirect_to new_user_profile_path
+	<% end %>
 
-<% if @user.profiles.empty? %>
-flash[:notice] = "Please complete a User Profile to continue"
-redirect_to new_user_profile_path
-<% end %>
-
-<% if @user.profiles.last.nil? %>
-<div class="user-form-divs">
-	<%= link_to 'Create a Profile', new_user_profile_path(:user_id => @user.id), method: :get %>
-</div>
-<% end %>
-
-<% if @user.utilities.empty? %>
-flash[:notice] = "Please complete the Utilities survey to continue"
-redirect_to new_user_utility_path
-<% end %>
-
-<% if @user.utilities.last.nil? || @user.utilities.last.created_at < 30.day.ago %>
-<div class="user-form-divs">
-	<%= link_to(new_user_utility_path(:user_id => @user.id), method: :get) do %>
-	<div>
-		<p>Tell us about your Utiity bill.</p>
-		<img src="/assets/utility.jpg">
+	<% if @user.profiles.last.nil? %>
+	<div class="user-form-divs">
+		<%= link_to 'Create a Profile', new_user_profile_path(:user_id => @user.id), method: :get %>
 	</div>
 	<% end %>
-</div>
-<% end %>
 
-<% if @user.recyclings.empty? %>
-flash[:notice] = "Please complete the Recycling survey to continue"
-redirect_to new_user_recycling_path
-<% end %>
+	<% if @user.utilities.empty? %>
+	flash[:notice] = "Please complete the Utilities survey to continue"
+	redirect_to new_user_utility_path
+	<% end %>
+
+	<% if @user.utilities.last.nil? || @user.utilities.last.created_at < 30.day.ago %>
+	<div class="user-form-divs">
+		<%= link_to(new_user_utility_path(:user_id => @user.id), method: :get) do %>
+		<div>
+			<p>Tell us about your Utility bill.</p>
+			<img src="/assets/utility.jpg">
+		</div>
+		<% end %>
+	</div>
+	<% end %>
+
+	<% if @user.recyclings.empty? %>
+	flash[:notice] = "Please complete the Recycling survey to continue"
+	redirect_to new_user_recycling_path
+	<% end %>
 
 
-<% if @user.recyclings.last.nil? || @user.recyclings.last.created_at < 45.day.ago %>
-<div class="user-form-divs">
-	<%= link_to "Let's talk about your recycling habits", new_user_recycling_path(:user_id => @user.id), method: :get %>
-</div>
-<% end %>
+	<% if @user.recyclings.last.nil? || @user.recyclings.last.created_at < 45.day.ago %>
+	<div class="user-form-divs">
+		<%= link_to "Let's talk about your recycling habits", new_user_recycling_path(:user_id => @user.id), method: :get %>
+	</div>
+	<% end %>
 
-<% if @user.travels.empty? %>
-flash[:notice] = "Please complete the Travel survey to continue"
-redirect_to new_user_travel_path
-<% end %>
+	<% if @user.travels.empty? %>
+	flash[:notice] = "Please complete the Travel survey to continue"
+	redirect_to new_user_travel_path
+	<% end %>
 
-<% if @user.travels.last.nil? || @user.travels.last.created_at < 1.day.ago %>
-<div class="user-form-divs">
-	<%= link_to "Tell us about your travels", new_user_travel_path(:user_id => @user.id), method: :get %>
-</div>
-<% end %>
+	<% if @user.travels.last.nil? || @user.travels.last.created_at < 1.day.ago %>
+	<div class="user-form-divs">
+		<%= link_to "Tell us about your travels", new_user_travel_path(:user_id => @user.id), method: :get %>
+	</div>
+	<% end %>
+
+	<body>
+
+		<div class="graph-instruction">
+			<div class="graph-body">
+				<h3>
+
+					
+
+					Your total CO2 Score is <%= @CO2 %> vs. the Average New Yorker at <%= @aCO2 %> 
+					
+					
+				</h3>
+				<p>
+					Review your <%= link_to "Detailed Report", detailedgraphs_path %> to see a complete view of your footprint compared with the average New York City resident. 
+				</p>
+
+				<%= bar_chart [ 
+					{name: "Total CO2 Score", data:[
+						["Current User", @CO2],  
+						["Average New Yorker", @aCO2]
+					]
+				}
+			]
+			%>
+
+			 -->
+		</div>
+
+	</div>
+	</div> 
+	</body>
+
+	</html>

@@ -18,6 +18,12 @@
 	font-size: 50px;
 }
 
+.body {
+	margin-left: 10px;
+	background-color:rgba(255,255,255,0.5);
+
+}
+
 /***********
 WELCOME PAGE
 ************/
@@ -34,8 +40,9 @@ WELCOME PAGE
 .about-instruction {
 	margin: 15px;
 	padding: 10px;
-	background-color: rgba(255,255,255,0.7);
+	background: rgba(255,255,255,0.7);
 	background: linear-gradient(rgba(255,255,255,0.09), rgba(255,255,255,0.9));
+
 }
 
 .about-instruction p {
@@ -196,12 +203,15 @@ TRAVEL FORMS
 GRAPHS
 ************/
 
-/*.graph-background {
-	background: no-repeat center center fixed; 
+.graph-instruction {
+}
+
+.graph-body {
+	background-color: white; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  margin: 0;
+  margin: 20px;
 
-}*/
+}

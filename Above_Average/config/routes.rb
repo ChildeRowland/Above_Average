@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get '/master_graph' => 'graphs#master_graph', as: :mastergraph
 
-   get '/detailedgraphs' => 'graphs#detailedgraphs', as: :detailedgraphs
+   get '/detailed_graphs' => 'graphs#detailed_graphs', as: :detailedgraphs
 
   get '/example' => 'graphs#example', as: :example
 

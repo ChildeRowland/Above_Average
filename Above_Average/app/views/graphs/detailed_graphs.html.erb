@@ -1,0 +1,165 @@
+  <html>
+  
+  <head>
+  	<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+    
+  </head>
+  <body>
+
+    <h5>Comprehensive User Survey Results vs. Average New Yorker</h5>
+
+    <p>Your age: <%= @user.profiles.last.age %> years </p>
+    <p>Average New Yorker: <%= @average_age %> years </p>
+
+    <p>Your household: <%= @user.profiles.last.total_household_members %> members </p>
+    <p>Average New Yorker's household: <%= @average_total_household_members %> members </p>
+
+    <%= bar_chart [
+      {name: "Current User: Utilities", data:[
+        ["kwh", @user.utilities.last.kwh],
+        ["therms", @user.utilities.last.therms],
+        ["gallons", @user.utilities.last.gallons],
+        ]
+      },
+
+      {name: "Average User: Utilities", data:[
+        ["kwh", @average_kwh],
+        ["therms", @average_therms],
+        ["gallons", @average_gallons]
+        ]
+      }
+      ]
+      %> 
+        
+
+    <%= column_chart [
+      {name: "Current User: Recycling", data:[
+        ["local", @user.recyclings.last.local],
+        ["compost", @user.recyclings.last.compost],
+        ["fabric", @user.recyclings.last.fabric],
+        ["ewaste", @user.recyclings.last.ewaste],
+        ]
+      },
+
+      {name: "Average User: Recycling", data:[
+        ["local", @average_local],
+        ["compost", @average_compost],
+        ["fabric", @average_fabric],
+        ["ewaste", @average_ewaste]
+        ]
+      }
+      ]
+
+      %> 
+
+
+  <%= column_chart [
+      {name: "Current User: Travel", data:[
+        ["walk", @user.travels.last.walk], 
+        ["bicycle", @user.travels.last.bicycle], 
+        ["bus", @user.travels.last.bus], 
+        ["car", @user.travels.last.car], 
+        ["train", @user.travels.last.train], 
+        ["plane", @user.travels.last.plane] 
+      ]
+      },
+
+      {name: "Average User: Travel", data:[
+        ["walk", @average_walk], 
+        ["bicycle", @average_bicycle], 
+        ["bus", @average_bus], 
+        ["car", @average_car], 
+        ["train", @average_train], 
+        ["plane", @average_plane] 
+      ]
+      }
+      ]
+      %> 
+
+ 
+      
+      
+        
+
+
+<h5>User Progress: First Survey vs Last Survey</h5>
+
+<%= column_chart [
+  {name: "Current User: First Survey", data:[
+    ["age", @user.profiles.first!.age],
+    ["household size", @user.profiles.first!.total_household_members]
+  ]
+  }, 
+
+  {name: "Current User: Last Survey", data:[
+    ["age", @user.profiles.last!.age],
+    ["household size", @user.profiles.last!.total_household_members]
+  ]
+}
+]
+%>
+
+<%= bar_chart [
+  {name: "Current User, First Survey: Utilities", data:[
+    ["kwh", @user.utilities.first.kwh],
+    ["therms", @user.utilities.first.therms],
+    ["gallons", @user.utilities.first.gallons]
+  ]
+  }, 
+
+  {name: "Current User, Last Survey: Utilities", data:[
+    ["kwh", @user.utilities.last.kwh],
+    ["therms", @user.utilities.last.therms],
+    ["gallons", @user.utilities.last.gallons]
+  ]
+}
+]
+%>
+
+<%= bar_chart [
+  {name: "Current User, First Survey: Recycling", data:[
+    ["local", @user.recyclings.first.local],
+    ["compost", @user.recyclings.first.compost],
+    ["fabric", @user.recyclings.first.fabric],
+    ["ewaste", @user.recyclings.first.ewaste]
+  ]
+  }, 
+
+  {name: "Current User, Last Survey: Recycling", data:[
+    ["local", @user.recyclings.last.local],
+    ["compost", @user.recyclings.last.compost],
+    ["fabric", @user.recyclings.last.fabric],
+    ["ewaste", @user.recyclings.last.ewaste]
+  ]
+}
+]
+%>
+
+<%= bar_chart [
+  {name: "Current User, First Survey: Travel", data:[
+    ["walk", @user.travels.first.walk],
+    ["bicycle", @user.travels.first.bicycle],
+    ["train", @user.travels.first.train],
+    ["bus", @user.travels.first.bus], 
+    ["car", @user.travels.first.car],
+    ["plane", @user.travels.first.plane]
+  ]
+  }, 
+
+  {name: "Current User, Last Survey: Travel", data:[
+    ["walk", @user.travels.last.walk],
+    ["bicycle", @user.travels.last.bicycle],
+    ["train", @user.travels.last.train],
+    ["bus", @user.travels.last.bus], 
+    ["car", @user.travels.last.car],
+    ["plane", @user.travels.last.plane]
+  ]
+}
+]
+%>
+
+</body>
+</html>
+
+
