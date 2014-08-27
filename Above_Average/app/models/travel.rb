@@ -1,6 +1,9 @@
 class Travel < ActiveRecord::Base
 
-	validates :walk, :bicycle, :train, :bus, :car, :plane, numericality: true
+	#validates :walk, :bicycle, :train, :bus, :car, :plane, numericality: true
+	attr_accessor :walk_string
+
+	before_save :sum_walked_feet
 
 	before_save :normalize
 
@@ -16,6 +19,15 @@ class Travel < ActiveRecord::Base
 	PLANE_TONS_CO2 = 0.0005
 
 	private
+
+	def sum_walked_feet
+		walk_list = self.walk_string.split(" ")
+		total = 0
+		walk_list.each do |num|
+  			total += num.to_i
+		end
+      	self.walk = total
+	end
 
 	def normalize
 		self.normalized_walk = self.walk * WALK_TONS_CO2

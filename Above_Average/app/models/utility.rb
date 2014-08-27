@@ -1,6 +1,17 @@
 class Utility < ActiveRecord::Base
 
-	validates :kwh, :therms, :gallons, numericality: true#, :message => "Numbers only please, no decimals."
+	validates :kwh,
+		:numericality =>
+		{:message => "Numbers only please, no decimals."}
+
+	validates :therms,
+		:numericality =>
+		{:message => "Numbers only please, no decimals."}
+
+	validates :gallons,
+		:numericality =>
+		{:message => "Numbers only please, no decimals."}
+
 
 	before_save :normalize, :aggregate
 

@@ -8,7 +8,8 @@ class TravelsController < ApplicationController
 	def create
 		@user = current_user
 		@travel = @user.travels.build(travel_params)
-		if @travel.save
+		@travel.walk_string = params[:travel][:walk]
+		if @travel.save 
 			redirect_to user_path @current_user
 		else
 			redirect_to :back
@@ -21,14 +22,3 @@ class TravelsController < ApplicationController
 	end
 
 end
-
-# number_string = params[:distance_dash_separated]
-
-	# walk_list = number_string.split('-')
-	# total = 0
-	# 	walk_list.each do |num|
- #  			total += num
-	# 	end
-	
-	# walk = total
-	# walk.save
