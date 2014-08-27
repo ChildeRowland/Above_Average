@@ -9,8 +9,10 @@ class RecyclingsController < ApplicationController
 		@user = current_user
 		@recycling = @user.recyclings.build(recycling_params)
 		if @recycling.save
+			flash[:notice] = "Info submited, thanks!"
 			redirect_to user_path @current_user
 		else
+			flash[:notice] = "Something went wrong, please try again."
 			redirect_to :back
 		end
 	end

@@ -9,8 +9,10 @@ class ProfilesController < ApplicationController
     @user = current_user
     @profile = @user.profiles.build(profile_params)
       if @profile.save
+        flash[:notice] = "Info submited, thanks!"
         redirect_to user_path @current_user
       else
+        flash[:notice] = "Something went wrong, try again"
         redirect_to :back
       end
   end

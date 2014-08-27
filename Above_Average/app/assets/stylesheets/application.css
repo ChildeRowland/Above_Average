@@ -14,8 +14,12 @@
  *= require_self
  */
 
-.test {
-	position: fixed;
+/*************
+FLASH MESSAGES
+**************/
+
+.notice, .alert {
+	
 }
 
 /***********
@@ -25,11 +29,6 @@ WELCOME PAGE
 .welcome-instruction {
 	margin: 15px;
 }
-
-
-/***********
-WELCOME PAGE
-************/
 
 .about-instruction {
 	margin: 15px;

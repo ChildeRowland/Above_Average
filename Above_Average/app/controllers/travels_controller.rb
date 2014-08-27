@@ -15,8 +15,10 @@ class TravelsController < ApplicationController
 		@travel.car_string = params[:travel][:car]
 		@travel.plane_string = params[:travel][:plane]
 		if @travel.save 
+			flash[:notice] = "Info submited, thanks!"
 			redirect_to user_path @current_user
 		else
+			flash[:notice] = "Something went wrong, please try again."
 			redirect_to :back
 		end
 	end
