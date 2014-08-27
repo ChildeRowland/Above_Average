@@ -1,19 +1,19 @@
 class Utility < ActiveRecord::Base
 
 	validates :kwh,
-		:exclusion => { :in => -1000..-1, 
+		:exclusion => { :in => -10000..-1, 
 			:message => "No negitive values please."},
 		:numericality =>
 		{:message => "Kilo Watts per Hour requires numbers please, no decimals."}
 
 	validates :therms,
-		:exclusion => { :in => -1000..-1, 
+		:exclusion => { :in => -10000..-1, 
 			:message => "No negitive values please."},
 		:numericality =>
 		{:message => "Therms in numbers only please, no decimals."}
 
 	validates :gallons,
-		:exclusion => { :in => -1000..-1, 
+		:exclusion => { :in => -10000..-1, 
 			:message => "No negitive values please."},
 		:numericality =>
 		{:message => "Gallons in numbers only please, no decimals."}
