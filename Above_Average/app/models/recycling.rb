@@ -116,10 +116,3 @@ class Recycling < ActiveRecord::Base
 
 end
 
-=begin
-	
-	def recyclings_descriptions(symbol, value)
-		
-	end
-
-=end
