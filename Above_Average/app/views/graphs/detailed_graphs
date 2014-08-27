@@ -1,0 +1,22 @@
+  <html>
+  
+  <head>
+  	<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+  </head>
+  
+  <h3>
+
+  	Detailed User Results for <%= @user.email %>
+  </h3>
+  
+  <h4>Results by:</h4>
+
+  <li>User profile vs average user</li>
+  <li>User utility vs average user</li>
+  <li>User recycling vs average user</li>
+  <li>User travel vs average user</li>
+  <li>User totals at start vs user totals later</li>
+
+  </html>
+
+

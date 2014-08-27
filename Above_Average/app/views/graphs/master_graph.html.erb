@@ -1,0 +1,50 @@
+<html>
+
+<head>
+	
+</head>
+
+
+<h3>
+
+	<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+	Snapshot of User Results for <%= @user.email %>
+</h3>
+
+<%= bar_chart [ 
+	{name: "Total CO2 Score", data:[
+		["Current User", @CO2],  
+		["Average New Yorker", @aCO2]
+	]
+}
+]
+%>
+
+<%= column_chart [
+	{name: "Current User", data:[
+		["age", @user.profiles.last.age],
+		["total household members", @user.profiles.last.total_household_members],
+		["kwh", @user.utilities.last.normalized_kwh],
+		["therms", @user.utilities.last.normalized_therms],
+		["gallons", @user.utilities.last.normalized_gallons],
+		["local", @user.recyclings.last.local],
+		["compost", @user.recyclings.last.compost],
+		["fabric", @user.recyclings.last.fabric],
+		["ewaste", @user.recyclings.last.ewaste],
+		["walk", @user.travels.last.normalized_walk], 
+		["train", @user.travels.last.normalized_train],
+		["bus", @user.travels.last.normalized_bus],
+		["car", @user.travels.last.normalized_car],
+		["walk", @user.travels.last.normalized_walk]
+	]
+}
+]
+%>
+
+
+
+
+      <!-- #add link for more detailed graph link_to index.html
+  -->
+</html>
