@@ -18,49 +18,13 @@
 <% if @user.profiles.empty? %>
 	<div class="user-form-divs">
 		<%= link_to(new_user_profile_path(:user_id => @user.id), method: :get) do %>
-		<div>
-			<p>
-				First, create a Profile
-			</p>
-			<img src="/assets/profile.png">
-		</div>
-			<% end %>
-<!-- =======
-<html>
-
-<head>
-	<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-</head>
-	<html>
-	<h4>
-		<%= @user.email %> home page
-	</h4>
-
-	<% if @user.profiles.empty? %>
-	flash[:notice] = "Please complete a User Profile to continue"
-	redirect_to new_user_profile_path
-	<% end %>
-
-	<% if @user.profiles.last.nil? %>
-	<div class="user-form-divs">
-		<%= link_to 'Create a Profile', new_user_profile_path(:user_id => @user.id), method: :get %>
-	</div>
-	<% end %>
-
-	<% if @user.utilities.empty? %>
-	flash[:notice] = "Please complete the Utilities survey to continue"
-	redirect_to new_user_utility_path
-	<% end %>
-
-	<% if @user.utilities.last.nil? || @user.utilities.last.created_at < 30.day.ago %>
-	<div class="user-form-divs">
-		<%= link_to(new_user_utility_path(:user_id => @user.id), method: :get) do %>
-		<div>
-			<p>Tell us about your Utility bill.</p>
-			<img src="/assets/utility.jpg">
-		</div>
+			<div>
+				<p>
+					First, create a Profile
+				</p>
+				<img src="/assets/profile.png">
+			</div>
 		<% end %>
->>>>>>> css
 	</div>
 
 <% else %>
@@ -68,111 +32,89 @@
 	<% if @user.profiles.last.created_at < 180.days.ago %>
 		<div class="user-form-divs">
 			<%= link_to(new_user_profile_path(:user_id => @user.id), method: :get) do %>
+					<div>
+						<p>
+							Update your Profile
+						</p>
+						<img src="/assets/profile.png">
+					</div>
+			<% end %>
+		</div>
+	<% end %>
+
+
+	<% if @user.utilities.last.nil? || @user.utilities.last.created_at < 30.day.ago %>
+		<div class="user-form-divs">
+			<%= link_to(new_user_utility_path(:user_id => @user.id), method: :get) do %>
 				<div>
 					<p>
-						Update your Profile
+						Household Utiities
 					</p>
-					<img src="/assets/profile.png">
+					<img src="/assets/utility.jpg">
 				</div>
 			<% end %>
 		</div>
 	<% end %>
 
-<<<<<<< HEAD
-	<% if @user.utilities.last.nil? || @user.utilities.last.created_at < 30.day.ago %>
-		<div class="user-form-divs">
-			<%= link_to(new_user_utility_path(:user_id => @user.id), method: :get) do %>
-		<div>
-			<p>Household Utiities</p>
-			<img src="/assets/utility.jpg">
-		</div>
-			<% end %>
-		</div>
-=======
-	<% if @user.recyclings.empty? %>
-	flash[:notice] = "Please complete the Recycling survey to continue"
-	redirect_to new_user_recycling_path
->>>>>>> css
-	<% end %>
 
 	<% if @user.recyclings.last.nil? || @user.recyclings.last.created_at < 45.day.ago %>
 		<div class="user-form-divs">
 			<%= link_to(new_user_recycling_path(:user_id => @user.id), method: :get) do %>
-			<div>
-				<p>
-					Reccyling Habits
-				</p>
-				<img src="/assets/recycle.png">
-			</div>
+				<div>
+					<p>
+						Reccyling Habits
+					</p>
+					<img src="/assets/recycle.png">
+				</div>
 			<% end %>
 		</div>
 	<% end %>
 
-<<<<<<< HEAD
 
 	<% if @user.travels.last.nil? || @user.travels.last.created_at < 1.day.ago %>
 		<div class="user-form-divs">
 			<%= link_to(new_user_travel_path(:user_id => @user.id), method: :get) do %>
-			<div>
-				<p>
-					Travel or Commute
-				</p>
-				<img src="/assets/travel.jpg">
-			</div>
+				<div>
+					<p>
+						Travel or Commute
+					</p>
+					<img src="/assets/travel.jpg">
+				</div>
 			<% end %>
 		</div>
 	<% end %>
-
-
 <% end %>
 
-	<% if @user.recyclings.last.nil? || @user.recyclings.last.created_at < 45.day.ago %>
-	<div class="user-form-divs">
-		<%= link_to "Let's talk about your recycling habits", new_user_recycling_path(:user_id => @user.id), method: :get %>
-	</div>
+
+<% if @user.profiles.empty? || @user.utilities.empty? || @user.recyclings.empty? || @user.travels.empty? %>
+	<p>
+		Everything is empty!
+	</p>
+
+<% else %>
+
+	<%= content_tag :div, :class => "graph-instruction" do %>
+		<%= content_tag :div, :class => "graph-body" do %>
+			<h3>
+				Your total CO2 Score is <%= @CO2 %> vs. the Average New Yorker at <%= @aCO2 %> 
+			</h3>
+			<p>
+				Review your <%= link_to "Detailed Report", detailedgraphs_path %> to see a complete view of your footprint compared with the average New York City resident. 
+			</p>
+
+			<%= bar_chart [ 
+						{name: "Total CO2 Score", data:[
+							["Current User", @CO2],  
+							["Average New Yorker", @aCO2]
+						]
+					}
+				]
+				%>
+
+		<% end %>
 	<% end %>
 
-	<% if @user.travels.empty? %>
-	flash[:notice] = "Please complete the Travel survey to continue"
-	redirect_to new_user_travel_path
-	<% end %>
+<% end %>
+	
 
-	<% if @user.travels.last.nil? || @user.travels.last.created_at < 1.day.ago %>
-	<div class="user-form-divs">
-		<%= link_to "Tell us about your travels", new_user_travel_path(:user_id => @user.id), method: :get %>
-	</div>
-	<% end %>
-
-	<body>
-
-		<div class="graph-instruction">
-			<div class="graph-body">
-				<h3>
-
-					
-
-					Your total CO2 Score is <%= @CO2 %> vs. the Average New Yorker at <%= @aCO2 %> 
-					
-					
-				</h3>
-				<p>
-					Review your <%= link_to "Detailed Report", detailedgraphs_path %> to see a complete view of your footprint compared with the average New York City resident. 
-				</p>
-
-				<%= bar_chart [ 
-					{name: "Total CO2 Score", data:[
-						["Current User", @CO2],  
-						["Average New Yorker", @aCO2]
-					]
-				}
-			]
-			%>
-
-			 
-		</div>
-
-	</div>
-	</div>  -->
-	</body>
-</html>
 

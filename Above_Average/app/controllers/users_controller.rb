@@ -11,25 +11,25 @@ class UsersController < ApplicationController
 		@users = User.all 
 		
 
-		if @user.profiles.empty?
-			flash[:notice] = "Please complete a User Profile to continue"
-			redirect_to user_profile_path
-		end
+		# if @user.profiles.empty?
+		# 	flash[:notice] = "Please complete a User Profile to continue"
+		# 	redirect_to new_user_profile_path @current_user
+		# end
 
-		if @user.utilities.empty?
-			flash[:notice] = "Please complete the Utilities survey to continue"
-			redirect_to user_utility_path
-		end
+		# if @user.utilities.empty?
+		# 	flash[:notice] = "Please complete the Utilities survey to continue"
+		# 	redirect_to new_user_utility_path @current_user
+		# end
 		
-		if @user.recyclings.empty?
-			flash[:notice] = "Please complete the Recycling survey to continue"
-			redirect_to user_recycling_path
-		end
+		# if @user.recyclings.empty?
+		# 	flash[:notice] = "Please complete the Recycling survey to continue"
+		# 	redirect_to new_user_recycling_path @current_user
+		# end
 
-		if @user.travels.empty?
-			flash[:notice] = "Please complete the Travel survey to continue"
-			redirect_to user_travel_path
-		end
+		# if @user.travels.empty?
+		# 	flash[:notice] = "Please complete the Travel survey to continue"
+		# 	redirect_to new_user_travel_path @current_user
+		# end
 	
 
 		# @profile = @user.profiles
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 		
 		@user_average_total_travels = Travel.where('user_id = ?', @user.id).average(:total)
 		@user_average_total_utilities = Utility.where('user_id = ?', @user.id).average(:total)
-		@CO2 = (@user_average_total_travels + @user_average_total_utilities) 
+		#@CO2 = (@user_average_total_travels + @user_average_total_utilities) 
 
 		@average_total_travels = Travel.average(:total)
 		@average_total_utilities = Utility.average(:total)
