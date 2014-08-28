@@ -70,7 +70,9 @@ class UsersController < ApplicationController
 		
 		@user_average_total_travels = Travel.where('user_id = ?', @user.id).average(:total)
 		@user_average_total_utilities = Utility.where('user_id = ?', @user.id).average(:total)
-		#@CO2 = (@user_average_total_travels + @user_average_total_utilities) 
+		if !@user.travels.empty? && !@user.utilities.empty?
+			@CO2 = (@user_average_total_travels + @user_average_total_utilities) 
+		end
 
 		@average_total_travels = Travel.average(:total)
 		@average_total_utilities = Utility.average(:total)
