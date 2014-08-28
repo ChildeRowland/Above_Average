@@ -3,7 +3,6 @@
   <head>
   	<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
-    
   </head>
   <body>
 
@@ -14,6 +13,7 @@
 
     <p>Your household: <%= @user.profiles.last.total_household_members %> members </p>
     <p>Average New Yorker's household: <%= @average_total_household_members %> members </p>
+
 
     <%= bar_chart [
       {name: "Current User: Utilities", data:[

@@ -73,24 +73,17 @@ class GraphsController < ApplicationController
 
 		
 
-		# @ = Travel.where(:total>100)
-
-		# = (@user_average_total_travels + @user_average_total_utilities) + 
-
+		
+		
 
 	end
 
-
-
 	#failed attempts at translating integers into strings for use output
-		# if @recycling.compost = 50
-		# 	puts "rarely"
-		# end
 
-		# if
-	# 	@user.recyclings.where("compost" < 100)
-	# 	puts "rarely"
-	# end
+
+
+
+
 
 #to show results of other users questions, use .count with a group.
 
@@ -160,6 +153,9 @@ class GraphsController < ApplicationController
 		@user_average_total_travels = Travel.where('user_id = ?', @user.id).average(:total)
 		@user_average_total_utilities = Utility.where('user_id = ?', @user.id).average(:total)
 		@CO2 = (@user_average_total_travels + @user_average_total_utilities) 
+
+		@user_average_total_recyclings = Recycling.where('user_id = ?', @user.id).average(:total)
+		@average_total_recyclings = Recycling.average(:total)
 
 		@average_total_travels = Travel.average(:total)
 		@average_total_utilities = Utility.average(:total)
