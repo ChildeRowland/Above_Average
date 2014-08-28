@@ -2,9 +2,9 @@
 <div style="background-color: rgba(250,250,250,0.6)">
 
 <div class="validation-messages">
-	<% if @recycling.errors.any? %>
+	<% if @travel.errors.any? %>
 		<ul>
-			<% @recycling.errors.each do |field, msg| %>
+			<% @travel.errors.each do |field, msg| %>
 				<li><%= msg %></li> <br />
    			<% end %>
    		<ul>

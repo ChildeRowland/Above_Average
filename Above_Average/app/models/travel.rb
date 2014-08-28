@@ -55,9 +55,9 @@ class Travel < ActiveRecord::Base
 		walk_list = self.walk_string.split(" ")
 		total = 0
 		walk_list.each do |num|
-  			total += num.to_i
+  			total += num.to_f
 		end
-      	self.walk = total
+      	self.walk = total / 5280
 	end
 
 	def sum_bicycle_distance
