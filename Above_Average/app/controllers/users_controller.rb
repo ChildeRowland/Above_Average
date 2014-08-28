@@ -76,7 +76,9 @@ class UsersController < ApplicationController
 
 		@average_total_travels = Travel.average(:total)
 		@average_total_utilities = Utility.average(:total)
-		@aCO2 = [@average_total_travels + @average_total_utilities] 
+		if !@user.travels.empty? && !@user.utilities.empty?
+			@CO2 = [@average_total_travels + @average_total_utilities]
+		end
 
 	end
 

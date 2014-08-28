@@ -53,7 +53,7 @@
 						<%= link_to_if current_user.nil?, 'Sign-in', new_user_session_path, method: :get do link_to 'Sign-out', destroy_user_session_path, method: :delete end %>
 					</li>
 					<li class="divider">
-						<%= link_to_if !current_user.nil?, "Results", mastergraph_path, method: :get do link_to "Graphs", root_path, method: :get end %></li>
+						<%= link_to_if !current_user.nil?, "Results", mastergraph_path, method: :get do link_to "Preview Results", example_path, method: :get end %></li>
 
 						<li class="divider">
 						<%= link_to "Example Results", example_path %>
@@ -62,6 +62,10 @@
 
 					<li class="divider">
 						<%= link_to 'nycda', "http://nycda.com", target: "_blank" %>
+					</li>
+
+					<li class="divider">
+						<%= link_to 'devise', "https://github.com/RailsApps/rails-devise", target: "_blank" %>
 					</li>
 
 				</ul>
