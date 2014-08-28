@@ -87,8 +87,9 @@
 
 <div class="user-graphs">
 	<% if @user.profiles.empty? || @user.utilities.empty? || @user.recyclings.empty? || @user.travels.empty? %>
-		<p>
-			Once you complete enough surveys, you'll see the results here.
+		
+		<p class="empty-data">
+			Once you complete enough surveys, you'll see the results below.
 		</p>
 
 	<% else %>

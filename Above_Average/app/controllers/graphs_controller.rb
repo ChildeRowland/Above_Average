@@ -28,7 +28,7 @@ class GraphsController < ApplicationController
 
 		if @user.profiles.empty? || @user.utilities.empty? || @user.recyclings.empty? || @user.travels.empty?
 
-			flash[:notice] = "Whoa, you have to fill out some surveys before you see behind the curtain."
+			flash[:notice] = "You have to fill out some surveys before you see the results."
 			redirect_to user_path @current_user
 
 		else
