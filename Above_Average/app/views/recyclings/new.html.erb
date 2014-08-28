@@ -33,17 +33,6 @@
 						msg = "I could do better, but I could totally do worse.  I don’t sweat using the garbage, but keep things separate around the house.  Sometimes if a container has been in the refrigerator too long, I’ll toss it instead of cleaning it out and recycling.";
 					} else if (val == 80 ) {
 						msg = "I follow the local rules to the letter in my own home.  Occasionally, when I’m out and about, I’ll use the trash can.  I trust the documentation that the city/state provides, and assume that everything gets to the best place.";
-
-						msg = "Does not Apply"
-					} else if (val <= 20) {
-						msg = "Occasionally";
-					} else if (val <= 40) {
-						msg = 'Sometimes';
-					} else if (val <= 60 ) {
-						msg = "Most of the Time";
-					} else if (val <= 80 ) {
-						msg = "Most of the Time";
-
 					} else
 						msg = "I never waste anything.  When I use a plastic bottle, I’ll carry it around with me until it can be properly recycled.  I won’t use a garbage receptacles that says: ‘Contents Sorted and Recycled’ unless I research the validity of the claim first, and verify the quality of the recycling process.";
 					$('#local-slider-value').html(msg);

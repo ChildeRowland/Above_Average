@@ -1,6 +1,35 @@
 class Travel < ActiveRecord::Base
-	#validates :walk,
-		# inclusion: { in: (0 1 2 3 4 5 6 7 8 9) message: "numbers only please, no decimals or symvols"}
+	
+	validates :walk,
+		:inclusion => { :in => 0..1000000, :message => "numbers only please, no decimals or symbols"},
+		:exclusion => { :in => -1000000..-1, 
+			:message => "No negitive values please."}
+
+	validates :bicycle,
+		:inclusion => { :in => 0..1000000, :message => "numbers only please, no decimals or symbols"},
+		:exclusion => { :in => -1000000..-1, 
+			:message => "No negitive values please."}
+
+	validates :train,
+		:inclusion => { :in => 0..1000000, :message => "numbers only please, no decimals or symbols"},
+		:exclusion => { :in => -1000000..-1, 
+			:message => "No negitive values please."}
+
+	validates :bus,
+		:inclusion => { :in => 0..1000000, :message => "numbers only please, no decimals or symbols"},
+		:exclusion => { :in => -1000000..-1, 
+			:message => "No negitive values please."}
+
+	validates :car,
+		:inclusion => { :in => 0..1000000, :message => "numbers only please, no decimals or symbols"},
+		:exclusion => { :in => -1000000..-1, 
+			:message => "No negitive values please."}
+
+	validates :plane,
+		:inclusion => { :in => 0..1000000, :message => "numbers only please, no decimals or symbols"},
+		:exclusion => { :in => -1000000..-1, 
+			:message => "No negitive values please."}
+		
 
 	# validates_format_of
 

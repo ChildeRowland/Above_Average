@@ -54,6 +54,7 @@
 }
 
 .user-graphs {
+	padding: 10px;
 	clear: both;
 	margin: 35px;
 	background-color: lightgrey;
