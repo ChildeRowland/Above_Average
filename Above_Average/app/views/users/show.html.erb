@@ -85,36 +85,37 @@
 	<% end %>
 <% end %>
 
+<div class="user-graphs">
+	<% if @user.profiles.empty? || @user.utilities.empty? || @user.recyclings.empty? || @user.travels.empty? %>
+		<p>
+			Once you complete enough surveys, you'll see the results here.
+		</p>
 
-<% if @user.profiles.empty? || @user.utilities.empty? || @user.recyclings.empty? || @user.travels.empty? %>
-	<p>
-		Everything is empty!
-	</p>
+	<% else %>
 
-<% else %>
+		<%= content_tag :div, :class => "graph-instruction" do %>
+			<%= content_tag :div, :class => "graph-body" do %>
+				<h3>
+					Your total CO2 Score is <%= @CO2 %> vs. the Average New Yorker at <%= @CO2 %> 
+				</h3>
+				<p>
+					Review your <%= link_to "Detailed Report", detailedgraphs_path %> to see a complete view of your footprint compared with the average New York City resident. 
+				</p>
 
-	<%= content_tag :div, :class => "graph-instruction" do %>
-		<%= content_tag :div, :class => "graph-body" do %>
-			<h3>
-				Your total CO2 Score is <%= @CO2 %> vs. the Average New Yorker at <%= @CO2 %> 
-			</h3>
-			<p>
-				Review your <%= link_to "Detailed Report", detailedgraphs_path %> to see a complete view of your footprint compared with the average New York City resident. 
-			</p>
+				<%= bar_chart [ 
+							{name: "Total CO2 Score", data:[
+								["Current User", @CO2],  
+								["Average New Yorker", @aCO2]
+							]
+						}
+					]
+					%>
 
-			<%= bar_chart [ 
-						{name: "Total CO2 Score", data:[
-							["Current User", @CO2],  
-							["Average New Yorker", @aCO2]
-						]
-					}
-				]
-				%>
-
+			<% end %>
 		<% end %>
-	<% end %>
 
-<% end %>
+	<% end %>
+</div>
 	
 
 
