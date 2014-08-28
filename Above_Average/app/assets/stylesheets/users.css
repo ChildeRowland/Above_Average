@@ -53,4 +53,10 @@
 	border-radius: 25px;
 }
 
+.user-graphs {
+	clear: both;
+	margin: 35px;
+	background-color: lightgrey;
+}
+
 

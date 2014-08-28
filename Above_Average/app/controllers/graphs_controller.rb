@@ -6,25 +6,32 @@ class GraphsController < ApplicationController
 		@users = User.all 
 		@user = current_user
 
-		if @user.profiles.empty?
-			flash[:notice] = "Please complete a User Profile to continue"
-			redirect_to new_user_profile_path
-		end
+		# if @user.profiles.empty?
+		# 	flash[:notice] = "Please complete a User Profile to continue"
+		# 	redirect_to new_user_profile_path
+		# end
 
-		if @user.utilities.empty?
-			flash[:notice] = "Please complete the Utilities survey to continue"
-			redirect_to new_user_utility_path
-		end
+		# if @user.utilities.empty?
+		# 	flash[:notice] = "Please complete the Utilities survey to continue"
+		# 	redirect_to new_user_utility_path
+		# end
 		
-		if @user.recyclings.empty?
-			flash[:notice] = "Please complete the Recycling survey to continue"
-			redirect_to new_user_recycling_path
-		end
+		# if @user.recyclings.empty?
+		# 	flash[:notice] = "Please complete the Recycling survey to continue"
+		# 	redirect_to new_user_recycling_path
+		# end
 
-		if @user.travels.empty?
-			flash[:notice] = "Please complete the Travel survey to continue"
-			redirect_to new_user_travel_path
-		end
+		# if @user.travels.empty?
+		# 	flash[:notice] = "Please complete the Travel survey to continue"
+		# 	redirect_to new_user_travel_path
+		# end
+
+		if @user.profiles.empty? || @user.utilities.empty? || @user.recyclings.empty? || @user.travels.empty?
+
+			flash[:notice] = "Whoa, you have to fill out some surveys before you see behind the curtain."
+			redirect_to user_path @current_user
+
+		else
 	
 
 		# @profile = @user.profiles
@@ -71,7 +78,7 @@ class GraphsController < ApplicationController
 		@average_total_utilities = Utility.average(:total)
 		@aCO2 = (@average_total_travels + @average_total_utilities) 
 
-		
+		end
 
 		
 		
