@@ -36,6 +36,14 @@ gem 'chartkick'
 # group_by_date options with gem 'chartkick'
 gem 'groupdate'
 
+group :development do
+    gem 'sqlite3'
+
+  end
+  group :production do
+gem 'pg'
+
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
